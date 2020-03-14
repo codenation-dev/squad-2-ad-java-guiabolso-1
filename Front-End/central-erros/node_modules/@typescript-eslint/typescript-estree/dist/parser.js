@@ -226,9 +226,8 @@ function applyParserOptionsToExtra(options) {
             options.createDefaultProgram;
 }
 function warnAboutTSVersion() {
-    var _a;
     if (!isRunningSupportedTypeScriptVersion && !warnedAboutTSVersion) {
-        const isTTY = typeof process === undefined ? false : (_a = process.stdout) === null || _a === void 0 ? void 0 : _a.isTTY;
+        const isTTY = typeof process === undefined ? false : process.stdout.isTTY;
         if (isTTY) {
             const border = '=============';
             const versionWarning = [
@@ -251,6 +250,7 @@ function warnAboutTSVersion() {
 const version = require('../package.json').version;
 exports.version = version;
 function parse(code, options) {
+    var _a;
     /**
      * Reset the parse configuration
      */
@@ -258,7 +258,7 @@ function parse(code, options) {
     /**
      * Ensure users do not attempt to use parse() when they need parseAndGenerateServices()
      */
-    if (options === null || options === void 0 ? void 0 : options.errorOnTypeScriptSyntacticAndSemanticIssues) {
+    if ((_a = options) === null || _a === void 0 ? void 0 : _a.errorOnTypeScriptSyntacticAndSemanticIssues) {
         throw new Error(`"errorOnTypeScriptSyntacticAndSemanticIssues" is only supported for parseAndGenerateServices()`);
     }
     /**
