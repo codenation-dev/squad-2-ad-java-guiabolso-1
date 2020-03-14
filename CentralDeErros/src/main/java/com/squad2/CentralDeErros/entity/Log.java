@@ -1,5 +1,9 @@
 package com.squad2.CentralDeErros.entity;
 
+import com.squad2.CentralDeErros.entity.enumerate.Ambiente;
+import com.squad2.CentralDeErros.entity.enumerate.Nivel;
+import com.squad2.CentralDeErros.entity.enumerate.Status;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -11,13 +15,17 @@ public class Log {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idLog;
 
-    @Column
+    @Enumerated(EnumType.ORDINAL)
     @NotNull
-    private String nivel;
+    private Nivel nivel;
 
-    @Column
+    @Enumerated(EnumType.ORDINAL)
     @NotNull
-    private String ambiente;
+    private Ambiente ambiente;
+
+    @Enumerated(EnumType.ORDINAL)
+    @NotNull
+    private Status status;
 
     @Column
     @NotNull
@@ -47,11 +55,11 @@ public class Log {
         this.idLog = idLog;
     }
 
-    public String getNivel() {
+    public Nivel getNivel() {
         return nivel;
     }
 
-    public void setNivel(String nivel) {
+    public void setNivel(Nivel nivel) {
         this.nivel = nivel;
     }
 
@@ -95,11 +103,19 @@ public class Log {
         this.idUsuario = idUsuario;
     }
 
-    public String getAmbiente() {
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Ambiente getAmbiente() {
         return ambiente;
     }
 
-    public void setAmbiente(String ambiente) {
+    public void setAmbiente(Ambiente ambiente) {
         this.ambiente = ambiente;
     }
 }
