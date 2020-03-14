@@ -17,6 +17,10 @@ public class Log {
 
     @Column
     @NotNull
+    private String ambiente;
+
+    @Column
+    @NotNull
     private String descricaoEvento;
 
     @Column
@@ -31,7 +35,7 @@ public class Log {
     @NotNull
     private Date data;
 
-    @Column
+    @ManyToOne
     @NotNull
     private Usuario idUsuario;
 
@@ -89,5 +93,13 @@ public class Log {
 
     public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public String getAmbiente() {
+        return ambiente;
+    }
+
+    public void setAmbiente(String ambiente) {
+        this.ambiente = ambiente;
     }
 }
