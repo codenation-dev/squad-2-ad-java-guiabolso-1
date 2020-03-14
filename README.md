@@ -22,16 +22,3 @@ Se a aceleração tiver ênfase em frontend (React, Vue, Angular, etc) a equipe 
 
 ### Wireframes
 Os wireframes a seguir servem para ilustrar as funcionalidades básicas que a aplicação deverá ter, porém o time terá total liberdade para definir os detalhes de implementação e estratégia a ser utilizada no desenvolvimento.
-
-
-
-
-
-
-
-
-
-
-
-
-
