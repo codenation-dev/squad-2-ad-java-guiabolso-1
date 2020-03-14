@@ -38,7 +38,7 @@ public class LogService {
             case DESC:
                 return logRepository.findAll(Sort.by(Sort.Direction.DESC, orderBy));
             default:
-                return logRepository.findAll();
+                return logRepository.findAll(Sort.by(orderBy));
         }
 
     }
