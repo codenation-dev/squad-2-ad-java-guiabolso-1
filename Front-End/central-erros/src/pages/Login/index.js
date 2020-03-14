@@ -1,11 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
+import Form from '../../components/Form'
+import Title from '../../components/Title'
 
-export default class Login extends Component {
-    render() {
-        return (
-            <div>
-                <h3>React Login Component</h3>
-            </div>
-        );
-    }
+import './styles.css'
+
+const Login = () => {
+    
+    return (
+        <div className='containerLogin'>
+            <Title 
+            classTitlePage="m-4"
+            titlePage="Central de Erros" />
+            <Form 
+            title='Login'
+            submit='Login'
+             />
+        </div>
+    );
+
 }
+
+export default Login
