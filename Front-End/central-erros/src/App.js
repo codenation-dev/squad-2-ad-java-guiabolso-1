@@ -5,6 +5,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Home from './pages/Home'
+import ForgotPassword from './pages/ForgotPassword'
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <Route exact path='/' component={Login} />
         <Route path="/sign-in" component={Login} />
         <Route path="/sign-up" component={SignUp} />
-        <Route path="/consulta" component={Home} />
+        <Route path="/home" component={Home} />
+        <Route path="/forgot-password" component={ForgotPassword} />
       </Switch>
     </Router>
   )
