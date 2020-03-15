@@ -13,6 +13,7 @@ public class Log {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID_LOG")
     private Long idLog;
 
     @Enumerated(EnumType.ORDINAL)
@@ -45,6 +46,7 @@ public class Log {
 
     @ManyToOne
     @NotNull
+    @JoinColumn(name = "ID_USUARIO")
     private Usuario idUsuario;
 
     public Long getIdLog() {
