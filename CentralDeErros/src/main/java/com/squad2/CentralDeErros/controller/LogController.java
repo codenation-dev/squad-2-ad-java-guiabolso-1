@@ -23,12 +23,13 @@ public class LogController {
         return logService.findAllOrderBy(orderBy, direction);
     }
 
-    @GetMapping(params = {"userId", "page", "size", "sortBy", "direction"})
+    @GetMapping(params = {"userId", "status", "page", "size", "sortBy", "direction"})
     public List<Log> findAllByUserId(@RequestParam("userId") Long userId,
+                                     @RequestParam(value = "status", required = false, defaultValue = "0") Short status,
                                      @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
                                      @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
                                      @RequestParam(value = "sortBy", required = false, defaultValue = "ID_LOG") String sortBy,
                                      @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
-        return logService.findAllByUserId(userId, page, size, sortBy, direction);
+        return logService.findAllByUserId(userId, status, page, size, sortBy, direction);
     }
 }

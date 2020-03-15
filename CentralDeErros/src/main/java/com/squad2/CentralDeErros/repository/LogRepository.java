@@ -18,8 +18,9 @@ public interface LogRepository extends JpaRepository<Log, Long> {
 
     @Query(value = "SELECT * " +
             "FROM LOG " +
-            "WHERE ID_USUARIO_ID_USUARIO = :userId",
+            "WHERE ID_USUARIO_ID_USUARIO = :userId " +
+            "AND STATUS = :status",
             nativeQuery = true)
-    List<Log> findAllByUserId(@Param("userId") Long userId, Pageable pageable);
+    List<Log> findAllByUserId(@Param("userId") Long userId, @Param("status") Short status, Pageable pageable);
 
 }

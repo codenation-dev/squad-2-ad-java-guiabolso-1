@@ -39,7 +39,7 @@ public class LogService {
         }
     }
 
-    public List<Log> findAllByUserId(Long userId, Short page, Short size, String sortBy, Sort.Direction direction) {
-        return logRepository.findAllByUserId(userId, PageRequest.of(page, size, Sort.by(direction, sortBy)));
+    public List<Log> findAllByUserId(Long userId, Short status, Short page, Short size, String sortBy, Sort.Direction direction) {
+        return logRepository.findAllByUserId(userId, status, PageRequest.of(page, size, Sort.by(direction, sortBy)));
     }
 }
