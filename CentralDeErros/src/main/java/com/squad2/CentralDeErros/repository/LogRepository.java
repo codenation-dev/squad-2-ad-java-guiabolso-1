@@ -1,6 +1,7 @@
 package com.squad2.CentralDeErros.repository;
 
 import com.squad2.CentralDeErros.entity.Log;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -17,7 +18,8 @@ public interface LogRepository extends JpaRepository<Log, Long> {
 
     @Query(value = "SELECT * " +
             "FROM LOG " +
-            "WHERE ID_USUARIO_ID_USUARIO  = :userId",
+            "WHERE ID_USUARIO_ID_USUARIO = :userId",
             nativeQuery = true)
-    List<Log> findAllByUserId(@Param("userId") Long userId);
+    List<Log> findAllByUserId(@Param("userId") Long userId, Pageable pageable);
+
 }

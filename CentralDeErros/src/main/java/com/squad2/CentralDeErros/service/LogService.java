@@ -3,6 +3,7 @@ package com.squad2.CentralDeErros.service;
 import com.squad2.CentralDeErros.entity.Log;
 import com.squad2.CentralDeErros.repository.LogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -40,10 +41,9 @@ public class LogService {
             default:
                 return logRepository.findAll(Sort.by(orderBy));
         }
-
     }
 
-    public List<Log> findAllByUserId(Long userId) {
-        return logRepository.findAllByUserId(userId);
+    public List<Log> findAllByUserId(Long userId, Pageable pageable) {
+        return logRepository.findAllByUserId(userId, pageable);
     }
 }
