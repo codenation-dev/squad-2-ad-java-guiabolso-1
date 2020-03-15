@@ -1,6 +1,7 @@
 package com.squad2.CentralDeErros.controller;
 
 import com.squad2.CentralDeErros.entity.Log;
+import com.squad2.CentralDeErros.entity.enumerate.Status;
 import com.squad2.CentralDeErros.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -25,7 +26,7 @@ public class LogController {
 
     @GetMapping(params = {"userId", "status", "page", "size", "sortBy", "direction"})
     public List<Log> findAllByUserId(@RequestParam("userId") Long userId,
-                                     @RequestParam(value = "status", required = false, defaultValue = "0") Short status,
+                                     @RequestParam(value = "status", required = false, defaultValue = "ATIVO") Status status,
                                      @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
                                      @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
                                      @RequestParam(value = "sortBy", required = false, defaultValue = "ID_LOG") String sortBy,
