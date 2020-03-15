@@ -30,7 +30,11 @@ public class LogController {
     }
 
     @GetMapping(params = {"userId", "page", "size", "sortBy", "direction"})
-    public List<Log> findAllByUserId(@RequestParam("userId") Long userId, @RequestParam("page") Short page, @RequestParam("size") Short size, @RequestParam("sortBy") String sortBy, @RequestParam("direction") Sort.Direction direction) {
+    public List<Log> findAllByUserId(@RequestParam("userId") Long userId,
+                                     @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
+                                     @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
+                                     @RequestParam(value = "sortBy", required = false, defaultValue = "ID_LOG") String sortBy,
+                                     @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
         return logService.findAllByUserId(userId, PageRequest.of(page, size, Sort.by(direction, sortBy)));
     }
 }
