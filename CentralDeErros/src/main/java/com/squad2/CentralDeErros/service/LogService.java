@@ -30,14 +30,7 @@ public class LogService {
     }
 
     public List<Log> findAllOrderBy(String orderBy, Sort.Direction direction) {
-        switch (direction) {
-            case ASC:
-                return logRepository.findAll(Sort.by(Sort.Direction.ASC, orderBy));
-            case DESC:
-                return logRepository.findAll(Sort.by(Sort.Direction.DESC, orderBy));
-            default:
-                return logRepository.findAll(Sort.by(orderBy));
-        }
+         return logRepository.findAll(Sort.by(direction, orderBy));
     }
 
     public List<Log> findAllByUserId(Long userId, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
