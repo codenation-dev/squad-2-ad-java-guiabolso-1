@@ -18,11 +18,6 @@ public class LogController {
     @Autowired
     private LogService logService;
 
-    @GetMapping("")
-    public List<Log> findAll() {
-        return logService.findAll();
-    }
-
     @GetMapping(params = {"orderBy", "direction"})
     public List<Log> findAllOrderBy(@RequestParam("orderBy") String orderBy, @RequestParam("direction") Sort.Direction direction) {
         return logService.findAllOrderBy(orderBy, direction);

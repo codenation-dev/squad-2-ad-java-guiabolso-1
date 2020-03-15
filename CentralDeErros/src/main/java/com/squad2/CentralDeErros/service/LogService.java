@@ -28,10 +28,6 @@ public class LogService {
         return logRepository.findById(id);
     }
 
-    public List<Log> findAll() {
-        return logRepository.findAll();
-    }
-
     public List<Log> findAllOrderBy(String orderBy, Sort.Direction direction) {
         switch (direction) {
             case ASC:
