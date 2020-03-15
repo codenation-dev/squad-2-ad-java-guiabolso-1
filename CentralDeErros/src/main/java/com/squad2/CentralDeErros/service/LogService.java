@@ -29,10 +29,6 @@ public class LogService {
         return logRepository.findById(id);
     }
 
-    public List<Log> findAllOrderBy(String orderBy, Sort.Direction direction) {
-         return logRepository.findAll(Sort.by(direction, orderBy));
-    }
-
     public List<Log> findAllByUserId(Long userId, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
         return logRepository.findAllByUserId(userId, status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
     }

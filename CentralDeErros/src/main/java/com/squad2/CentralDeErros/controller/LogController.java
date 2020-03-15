@@ -19,11 +19,6 @@ public class LogController {
     @Autowired
     private LogService logService;
 
-    @GetMapping(params = {"orderBy", "direction"})
-    public List<Log> findAllOrderBy(@RequestParam("orderBy") String orderBy, @RequestParam("direction") Sort.Direction direction) {
-        return logService.findAllOrderBy(orderBy, direction);
-    }
-
     @GetMapping(params = {"userId", "status", "page", "size", "sortBy", "direction"})
     public List<Log> findAllByUserId(@RequestParam("userId") Long userId,
                                      @RequestParam(value = "status", required = false, defaultValue = "ATIVO") Status status,
