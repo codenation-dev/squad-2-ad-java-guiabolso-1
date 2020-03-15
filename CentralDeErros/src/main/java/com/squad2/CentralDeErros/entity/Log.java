@@ -1,7 +1,7 @@
 package com.squad2.CentralDeErros.entity;
 
-import com.squad2.CentralDeErros.entity.enumerate.Ambiente;
-import com.squad2.CentralDeErros.entity.enumerate.Nivel;
+import com.squad2.CentralDeErros.entity.enumerate.Environment;
+import com.squad2.CentralDeErros.entity.enumerate.Level;
 import com.squad2.CentralDeErros.entity.enumerate.Status;
 
 import javax.persistence.*;
@@ -18,11 +18,11 @@ public class Log {
 
     @Enumerated(EnumType.ORDINAL)
     @NotNull
-    private Nivel nivel;
+    private Level level;
 
     @Enumerated(EnumType.ORDINAL)
     @NotNull
-    private Ambiente ambiente;
+    private Environment environment;
 
     @Enumerated(EnumType.ORDINAL)
     @NotNull
@@ -30,24 +30,24 @@ public class Log {
 
     @Column
     @NotNull
-    private String descricaoEvento;
+    private String eventDescription;
 
     @Column
     @NotNull
-    private String logEvento;
+    private String eventLog;
 
     @Column
     @NotNull
-    private String origem;
+    private String source;
 
     @Column
     @NotNull
-    private Date data;
+    private Date date;
 
     @ManyToOne
     @NotNull
-    @JoinColumn(name = "ID_USUARIO")
-    private Usuario idUsuario;
+    @JoinColumn(name = "ID_USER")
+    private User idUser;
 
     public Long getIdLog() {
         return idLog;
@@ -57,52 +57,20 @@ public class Log {
         this.idLog = idLog;
     }
 
-    public Nivel getNivel() {
-        return nivel;
+    public Level getLevel() {
+        return level;
     }
 
-    public void setNivel(Nivel nivel) {
-        this.nivel = nivel;
+    public void setLevel(Level level) {
+        this.level = level;
     }
 
-    public String getDescricaoEvento() {
-        return descricaoEvento;
+    public Environment getEnvironment() {
+        return environment;
     }
 
-    public void setDescricaoEvento(String descricaoEvento) {
-        this.descricaoEvento = descricaoEvento;
-    }
-
-    public String getLogEvento() {
-        return logEvento;
-    }
-
-    public void setLogEvento(String logEvento) {
-        this.logEvento = logEvento;
-    }
-
-    public String getOrigem() {
-        return origem;
-    }
-
-    public void setOrigem(String origem) {
-        this.origem = origem;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public Usuario getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(Usuario idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setEnvironment(Environment environment) {
+        this.environment = environment;
     }
 
     public Status getStatus() {
@@ -113,11 +81,43 @@ public class Log {
         this.status = status;
     }
 
-    public Ambiente getAmbiente() {
-        return ambiente;
+    public String getEventDescription() {
+        return eventDescription;
     }
 
-    public void setAmbiente(Ambiente ambiente) {
-        this.ambiente = ambiente;
+    public void setEventDescription(String eventDescription) {
+        this.eventDescription = eventDescription;
+    }
+
+    public String getEventLog() {
+        return eventLog;
+    }
+
+    public void setEventLog(String eventLog) {
+        this.eventLog = eventLog;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public User getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(User idUser) {
+        this.idUser = idUser;
     }
 }
