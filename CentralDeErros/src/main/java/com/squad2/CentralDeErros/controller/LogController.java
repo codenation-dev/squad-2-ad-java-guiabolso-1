@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/log")
@@ -20,24 +21,29 @@ public class LogController {
     @Autowired
     private LogService logService;
 
+    @GetMapping(params = {"id"})
+    public Optional<Log> getLogById(@RequestParam("id") Long id) {
+        return logService.getLogById(id);
+    }
+
     @GetMapping(params = {"user"})
     public List<Log> getLogByidUser(@RequestParam("user") Long idUser,
-                                     @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
-                                     @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
-                                     @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
-                                     @RequestParam(value = "sortBy", required = false, defaultValue = "ID_LOG") String sortBy,
-                                     @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
+                                    @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
+                                    @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
+                                    @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
+                                    @RequestParam(value = "sortBy", required = false, defaultValue = "ID_LOG") String sortBy,
+                                    @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
         return logService.getLogByidUser(idUser, status, page, size, sortBy, direction);
     }
 
     @GetMapping(params = {"user", "env"})
     public List<Log> getLogByidUserAndEnv(@RequestParam("user") Long idUser,
-                                     @RequestParam("env") Environment environment,
-                                     @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
-                                     @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
-                                     @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
-                                     @RequestParam(value = "sortBy", required = false, defaultValue = "ID_LOG") String sortBy,
-                                     @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
+                                          @RequestParam("env") Environment environment,
+                                          @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
+                                          @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
+                                          @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
+                                          @RequestParam(value = "sortBy", required = false, defaultValue = "ID_LOG") String sortBy,
+                                          @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
         return logService.getLogByidUserAndEnv(idUser, environment, status, page, size, sortBy, direction);
     }
 }

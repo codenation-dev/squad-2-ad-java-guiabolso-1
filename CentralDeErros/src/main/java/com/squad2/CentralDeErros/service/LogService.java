@@ -26,7 +26,7 @@ public class LogService {
         return logRepository.save(log);
     }
 
-    public Optional<Log> findById(Long id) {
+    public Optional<Log> getLogById(Long id) {
         return logRepository.findById(id);
     }
 
