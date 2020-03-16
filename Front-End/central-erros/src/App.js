@@ -2,14 +2,15 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
-import Login from './pages/Login'
-import SignUp from './pages/SignUp'
-import Home from './pages/Home'
-import ForgotPassword from './pages/ForgotPassword'
+import { Header } from './components'
+import { ForgotPassword, Home, Login, SignUp } from './pages'
 
 function App() {
   return (
     <Router>
+      <Header
+        classTitlePage="navbar navbar-light text-light bg-dark"
+        titlePage="Central de Erros" />
       <Switch>
         <Route exact path='/' component={Login} />
         <Route path="/sign-in" component={Login} />
