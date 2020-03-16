@@ -14,17 +14,17 @@ public interface LogRepository extends JpaRepository<Log, Long> {
 
     @Query(value = "SELECT * " +
             "FROM LOG " +
-            "WHERE ID_USER = :idUser " +
+            "WHERE USER_ID = :userId " +
             "AND STATUS = :status",
             nativeQuery = true)
-    List<Log> getLogByidUser(@Param("idUser") Long idUser, @Param("status") int status, Pageable pageable);
+    List<Log> getLogByUserId(@Param("userId") Long userId, @Param("status") int status, Pageable pageable);
 
     @Query(value = "SELECT * " +
             "FROM LOG " +
-            "WHERE ID_USER = :idUser " +
+            "WHERE USER_ID = :userId " +
             "AND STATUS = :status " +
             "AND ENVIRONMENT = :environment",
             nativeQuery = true)
-    List<Log> getLogByidUserAndEnv(@Param("idUser") Long idUser, @Param("environment") int environment, @Param("status") int status, Pageable pageable);
+    List<Log> getLogByUserIdAndEnv(@Param("userId") Long userId, @Param("environment") int environment, @Param("status") int status, Pageable pageable);
 
 }

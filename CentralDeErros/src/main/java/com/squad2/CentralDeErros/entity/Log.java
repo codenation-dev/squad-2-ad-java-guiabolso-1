@@ -13,8 +13,8 @@ public class Log {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_LOG")
-    private Long idLog;
+    @Column(name = "ID")
+    private Long id;
 
     @Enumerated(EnumType.ORDINAL)
     @NotNull
@@ -46,15 +46,15 @@ public class Log {
 
     @ManyToOne
     @NotNull
-    @JoinColumn(name = "ID_USER")
-    private User idUser;
+    @JoinColumn(name = "USER_ID")
+    private User user;
 
-    public Long getIdLog() {
-        return idLog;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdLog(Long idLog) {
-        this.idLog = idLog;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Level getLevel() {
@@ -113,11 +113,11 @@ public class Log {
         this.date = date;
     }
 
-    public User getIdUser() {
-        return idUser;
+    public User getUser() {
+        return user;
     }
 
-    public void setIdUser(User idUser) {
-        this.idUser = idUser;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

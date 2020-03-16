@@ -27,23 +27,23 @@ public class LogController {
     }
 
     @GetMapping(params = {"user"})
-    public List<Log> getLogByidUser(@RequestParam("user") Long idUser,
+    public List<Log> getLogByUserId(@RequestParam("user") Long userId,
                                     @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
                                     @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
                                     @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
-                                    @RequestParam(value = "sortBy", required = false, defaultValue = "ID_LOG") String sortBy,
+                                    @RequestParam(value = "sortBy", required = false, defaultValue = "ID") String sortBy,
                                     @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
-        return logService.getLogByidUser(idUser, status, page, size, sortBy, direction);
+        return logService.getLogByUserId(userId, status, page, size, sortBy, direction);
     }
 
     @GetMapping(params = {"user", "env"})
-    public List<Log> getLogByidUserAndEnv(@RequestParam("user") Long idUser,
+    public List<Log> getLogByUserIdAndEnv(@RequestParam("user") Long userId,
                                           @RequestParam("env") Environment environment,
                                           @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
                                           @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
                                           @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
-                                          @RequestParam(value = "sortBy", required = false, defaultValue = "ID_LOG") String sortBy,
+                                          @RequestParam(value = "sortBy", required = false, defaultValue = "ID") String sortBy,
                                           @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
-        return logService.getLogByidUserAndEnv(idUser, environment, status, page, size, sortBy, direction);
+        return logService.getLogByUserIdAndEnv(userId, environment, status, page, size, sortBy, direction);
     }
 }

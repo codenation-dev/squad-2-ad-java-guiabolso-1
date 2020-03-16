@@ -30,11 +30,11 @@ public class LogService {
         return logRepository.findById(id);
     }
 
-    public List<Log> getLogByidUser(Long idUser, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
-        return logRepository.getLogByidUser(idUser, status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
+    public List<Log> getLogByUserId(Long userId, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
+        return logRepository.getLogByUserId(userId, status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
     }
 
-    public List<Log> getLogByidUserAndEnv(Long idUser, Environment environment, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
-        return logRepository.getLogByidUserAndEnv(idUser, environment.ordinal(), status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
+    public List<Log> getLogByUserIdAndEnv(Long userId, Environment environment, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
+        return logRepository.getLogByUserIdAndEnv(userId, environment.ordinal(), status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
     }
 }
