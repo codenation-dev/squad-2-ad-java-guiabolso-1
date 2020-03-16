@@ -17,7 +17,7 @@ public interface LogRepository extends JpaRepository<Log, Long> {
             "WHERE ID_USER = :idUser " +
             "AND STATUS = :status",
             nativeQuery = true)
-    List<Log> findAllByidUser(@Param("idUser") Long idUser, @Param("status") int status, Pageable pageable);
+    List<Log> getLogByidUser(@Param("idUser") Long idUser, @Param("status") int status, Pageable pageable);
 
     @Query(value = "SELECT * " +
             "FROM LOG " +
@@ -25,6 +25,6 @@ public interface LogRepository extends JpaRepository<Log, Long> {
             "AND STATUS = :status " +
             "AND ENVIRONMENT = :environment",
             nativeQuery = true)
-    List<Log> findAllByidUserAndEnv(@Param("idUser") Long idUser, @Param("environment") int environment, @Param("status") int status, Pageable pageable);
+    List<Log> getLogByidUserAndEnv(@Param("idUser") Long idUser, @Param("environment") int environment, @Param("status") int status, Pageable pageable);
 
 }
