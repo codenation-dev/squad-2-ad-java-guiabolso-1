@@ -5,8 +5,8 @@ const FormSignUp =(props)=>{
         <form className="m-4" onSubmit={props.onSubmit}>
         <h3>{props.title}</h3>
         <div className="form-group">
-            <label>Name</label>
-            <input type="text" className="form-control" placeholder="Name" onChange={props.onChangeName}
+            <label>Full Name</label>
+            <input type="text" className="form-control" placeholder="full name" onChange={props.onChangeName}
             />
         </div>
         <div className="form-group">
