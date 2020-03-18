@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Form from '../../components/Form'
-import Title from '../../components/Header'
 import Link from '../../components/Link'
 
 import './styles.css'
