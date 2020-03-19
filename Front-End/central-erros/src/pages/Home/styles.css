@@ -1,0 +1,20 @@
+.formStyle {
+    width: 100%;
+    padding: 10px;
+    background-color: lightgray;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
+}
+
+.select {
+    width: 250px;
+    margin: 10px;
+}
+
+.input {
+    width: 300px;
+}

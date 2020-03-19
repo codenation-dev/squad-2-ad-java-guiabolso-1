@@ -1,4 +1,4 @@
-import React ,{useState,useEffect} from 'react'
+/* import React ,{useState,useEffect} from 'react'
 import Select from 'react-select'
 
 const SearchBar=({filters}) =>{
@@ -51,4 +51,4 @@ const SearchBar=({filters}) =>{
         )
 }
 
-export default SearchBar
+export default SearchBar */
