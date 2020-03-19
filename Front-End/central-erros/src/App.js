@@ -9,8 +9,8 @@ function App() {
   return (
     <Router>
       <Header
-        classTitlePage="navbar navbar-light text-light bg-dark"
-        titlePage="Central de Erros" />
+        classTitle="navbar navbar-light text-light bg-dark"
+        title="Central de Erros" />
       <Switch>
         <Route exact path='/' component={Login} />
         <Route path="/sign-in" component={Login} />
