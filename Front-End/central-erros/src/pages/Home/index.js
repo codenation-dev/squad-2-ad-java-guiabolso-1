@@ -37,6 +37,7 @@ const Home = () => {
                 </input>
                 <button>Buscar!</button>
             </form>
+            
         </>
     )
 }

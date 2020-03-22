@@ -8,6 +8,7 @@ const Signup = () => {
     const [name, setName] = useState(null)
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)
+    
     let history = useHistory()
 
     const sent = (e) => {
