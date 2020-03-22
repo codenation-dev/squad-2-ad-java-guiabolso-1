@@ -1,19 +1,52 @@
-import React, { useState } from "react";
-import Form from '../../components/Form'
-import Title from '../../components/Header'
+import React, { useState } from "react"
+import { useAlert } from "react-alert"
+import { useHistory } from "react-router-dom"
+import { FormForgotPassword, Link } from "../../components"
+import "./styles.css"
 
-const ForgotPassword = () =>{
+const ForgotPassword = () => {
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    return(
-        <div className='containerLogin'>
-            <Form
-                title='Forgot Password'
-                submit='Submit'
-                onChangeEmail={(e) => setEmail(e.target.value)}
-                onChangePassword={(e) => setPassword(e.target.value)}
-                />
+    const [email, setEmail] = useState(null)
+
+    const alert = useAlert()
+    let history = useHistory()
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if (email) {
+            alert.success("Senha enviada com sucesso! Confira sua caixa de entrada e efetue seu login!")
+            history.push("/sign-in")
+        } else {
+            alert.error("Preencha seu e-mail")
+        }
+    }
+
+    return (
+        <div className='containerPassword'>
+            <FormForgotPassword
+                classForm="m-4"
+                onSubmit={(e) => handleSubmit(e)}
+                title="Esqueceu a senha?"
+                paragraph="Preencha seu e-mail que enviaremos a senha cadastrada para você"
+                classContainerInput="form-group"
+                typeInput="email"
+                classInput="form-control"
+                placeholder="E-mail"
+                onChange={(e) => setEmail(e.target.value)}
+                typeButton="submit"
+                classButton="btn btn-primary btn-block"
+                textButton="Enviar!"
+            />
+            <Link
+                firstText="Voltar para "
+                secondText="Login"
+                href="http://localhost:3000/sign-in"
+            />
+            <Link
+                firstText="Não tem cadastro?"
+                secondText=" Cadastre-se aqui!"
+                href="http://localhost:3000/sign-up"
+            />
         </div>
     )
 }

@@ -11,7 +11,7 @@ const Signup = () => {
     
     let history = useHistory()
 
-    const sent = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
         if (name && email && password) {
             alert("Cadastro efetuado com sucesso! Efetue o login!")
@@ -29,7 +29,7 @@ const Signup = () => {
                 onChangeName={(e) => setName(e.target.value)}
                 onChangeEmail={(e) => setEmail(e.target.value)}
                 onChangePassword={(e) => setPassword(e.target.value)}
-                onSubmit={(e) => { sent(e) }}
+                onSubmit={(e) => { handleSubmit(e) }}
             />
 
 
