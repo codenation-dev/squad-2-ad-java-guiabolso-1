@@ -1,6 +1,7 @@
 import React, { useState } from "react"
+import { useAlert } from "react-alert"
 import { useHistory } from "react-router-dom"
-import FormSignUp from '../../components/FormSignUp'
+import { Link, FormSignUp } from '../../components'
 
 import './styles.css'
 
@@ -8,16 +9,17 @@ const Signup = () => {
     const [name, setName] = useState(null)
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)
-    
+
+    const alert = useAlert()
     let history = useHistory()
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if (name && email && password) {
-            alert("Cadastro efetuado com sucesso! Efetue o login!")
+            alert.success("Cadastro efetuado com sucesso! Efetue o login!")
             history.push("/sign-in")
         } else {
-            alert("Preencha todos os campos.")
+            alert.show("Preencha todos os campos.")
         }
     }
 
@@ -32,6 +34,11 @@ const Signup = () => {
                 onSubmit={(e) => { handleSubmit(e) }}
             />
 
+            <Link
+                firstText="Já tem cadastro? Faça o seu login"
+                secondText=" aqui!"
+                href="http://localhost:3000/sign-in"
+            />
 
 
         </div>

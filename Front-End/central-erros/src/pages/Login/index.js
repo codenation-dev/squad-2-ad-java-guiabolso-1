@@ -20,7 +20,7 @@ const Login = () => {
             alert.success("Você está logado!")
             history.push("/home")
         } else {
-            alert.error("Preencha todos os dados.")
+            alert.show("Preencha todos os dados.")
         }
 
     }

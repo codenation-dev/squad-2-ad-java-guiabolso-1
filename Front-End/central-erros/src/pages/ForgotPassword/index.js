@@ -17,7 +17,7 @@ const ForgotPassword = () => {
             alert.success("Senha enviada com sucesso! Confira sua caixa de entrada e efetue seu login!")
             history.push("/sign-in")
         } else {
-            alert.error("Preencha seu e-mail")
+            alert.show("Preencha seu e-mail")
         }
     }
 
