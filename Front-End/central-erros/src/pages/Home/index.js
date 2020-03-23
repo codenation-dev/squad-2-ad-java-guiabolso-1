@@ -5,9 +5,9 @@ import './styles.css'
 
 const Home = () => {
 
-    const [tipo, setTipo] = useState(null)
-    const [ordenarPor, setOrdenarPor] = useState(null)
-    const [buscarPor, setBuscarPor] = useState(null)
+    const [tipo, setTipo] = useState("")
+    const [ordenarPor, setOrdenarPor] = useState("")
+    const [buscarPor, setBuscarPor] = useState("")
     /* 
         const tipos = ['Produção', 'Homologação', 'Dev']
         const ordenacao = ['Level', 'Frequência']
