@@ -6,7 +6,7 @@ import "./styles.css"
 
 const ForgotPassword = () => {
 
-    const [email, setEmail] = useState(null)
+    const [email, setEmail] = useState("")
 
     const alert = useAlert()
     let history = useHistory()

@@ -8,8 +8,8 @@ import './styles.css'
 
 const Login = () => {
 
-    const [email, setEmail] = useState(null)
-    const [password, setPassword] = useState(null)
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
     const alert = useAlert()
     let history = useHistory()
@@ -37,8 +37,8 @@ const Login = () => {
 
             />
             <Link
-                firstText="Esqueceu a "
-                secondText="senha?"
+                firstText="Esqueceu a senha? "
+                secondText="Clique aqui!"
                 href="http://localhost:3000/forgot-password"
             />
             <Link

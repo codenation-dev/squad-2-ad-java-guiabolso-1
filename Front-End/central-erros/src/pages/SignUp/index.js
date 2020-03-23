@@ -1,14 +1,14 @@
 import React, { useState } from "react"
 import { useAlert } from "react-alert"
 import { useHistory } from "react-router-dom"
-import { Link, FormSignUp } from '../../components'
+import { Link, FormSignUp } from "../../components"
 
-import './styles.css'
+import "./styles.css"
 
 const Signup = () => {
-    const [name, setName] = useState(null)
-    const [email, setEmail] = useState(null)
-    const [password, setPassword] = useState(null)
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
     const alert = useAlert()
     let history = useHistory()
