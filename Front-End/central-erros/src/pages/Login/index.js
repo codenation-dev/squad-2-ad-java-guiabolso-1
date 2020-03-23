@@ -37,8 +37,8 @@ const Login = () => {
 
             />
             <Link
-                firstText="Esqueceu a "
-                secondText="senha?"
+                firstText="Esqueceu a senha? "
+                secondText="Clique aqui!"
                 href="http://localhost:3000/forgot-password"
             />
             <Link
