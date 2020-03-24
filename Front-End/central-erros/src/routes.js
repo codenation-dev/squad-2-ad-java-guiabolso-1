@@ -40,7 +40,7 @@ function Routes() {
                     <Route path="/sign-in" component={Login} />
                     <Route path="/sign-up" component={SignUp} />
                     <PrivateRoute path="/home" component={Home} />
-                    <Route path="/forgot-password" component={ForgotPassword} />
+                    <Route path="/forgotPassword" component={ForgotPassword} />
                     <Route path="*" component={NotFound} />
                 </Switch>
             </BrowserRouter>
