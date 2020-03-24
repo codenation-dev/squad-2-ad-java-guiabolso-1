@@ -1,5 +1,6 @@
 package com.squad2.CentralDeErros.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.squad2.CentralDeErros.entity.enumerate.Environment;
 import com.squad2.CentralDeErros.entity.enumerate.Level;
 import com.squad2.CentralDeErros.entity.enumerate.Status;
@@ -42,6 +43,7 @@ public class Log {
 
     @Column
     @NotNull
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date date;
 
     @ManyToOne
