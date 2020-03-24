@@ -1,7 +1,9 @@
 import React, { useState } from "react"
 import { useAlert } from "react-alert"
 import { useHistory } from "react-router-dom"
+
 import { Link, FormSignUp } from "../../components"
+import api from "../../services/api"
 
 import "./styles.css"
 
@@ -13,13 +15,19 @@ const Signup = () => {
     const alert = useAlert()
     let history = useHistory()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        if (name && email && password) {
-            alert.success("Cadastro efetuado com sucesso! Efetue o login!")
-            history.push("/sign-in")
-        } else {
+        if (!name || !email || !password) {
             alert.show("Preencha todos os campos.")
+        } else {
+            try {
+                await api.post("/users", {name, email, password})
+                history.push("/sign-in")
+                alert.success("Cadastro efetuado com sucesso! Efetue o login!")
+            } catch(error) {
+                console.log(error)
+                alert.error("Ocorreu um erro ao registrar sua conta. Tente novamente.")
+            }
         }
     }
 
@@ -37,7 +45,7 @@ const Signup = () => {
             <Link
                 firstText="Já tem cadastro? Faça o seu login"
                 secondText=" aqui!"
-                href="http://localhost:3000/sign-in"
+                href="http://localhost:3000/login"
             />
 
 

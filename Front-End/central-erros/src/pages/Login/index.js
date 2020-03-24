@@ -39,11 +39,11 @@ const Login = () => {
             <Link
                 firstText="Esqueceu a senha? "
                 secondText="Clique aqui!"
-                href="http://localhost:3000/forgot-password"
+                href="http://localhost:3000/forgotPassword"
             />
             <Link
                 secondText="Cadastre-se!"
-                href="http://localhost:3000/sign-up"
+                href="http://localhost:3000/signUp"
             />
 
         </div>

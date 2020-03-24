@@ -40,12 +40,12 @@ const ForgotPassword = () => {
             <Link
                 firstText="Voltar para "
                 secondText="Login"
-                href="http://localhost:3000/sign-in"
+                href="http://localhost:3000/login"
             />
             <Link
                 firstText="Não tem cadastro?"
                 secondText=" Cadastre-se aqui!"
-                href="http://localhost:3000/sign-up"
+                href="http://localhost:3000/signUp"
             />
         </div>
     )
