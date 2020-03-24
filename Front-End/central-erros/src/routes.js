@@ -37,8 +37,8 @@ function Routes() {
                     title="Central de Erros" />
                 <Switch>
                     <Route exact path='/' component={Login} />
-                    <Route path="/sign-in" component={Login} />
-                    <Route path="/sign-up" component={SignUp} />
+                    <Route path="/login" component={Login} />
+                    <Route path="/signUp" component={SignUp} />
                     <PrivateRoute path="/home" component={Home} />
                     <Route path="/forgotPassword" component={ForgotPassword} />
                     <Route path="*" component={NotFound} />
