@@ -18,7 +18,7 @@ import java.util.Set;
 
 
 @Service
-public class MyUserDetailsService implements UserDetailsService {
+public class JwtUserDetailsService implements UserDetailsService {
 
     @Autowired
     private UserService userService;
@@ -26,7 +26,7 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        User user = userService.findUserByUserName(userName);
+        User user = userService.findUserByEmail(userName);
         if (user == null) {
             throw new UsernameNotFoundException(userName);
         }
