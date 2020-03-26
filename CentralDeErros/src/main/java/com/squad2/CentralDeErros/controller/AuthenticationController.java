@@ -6,12 +6,15 @@ import com.squad2.CentralDeErros.model.JwtRequest;
 import com.squad2.CentralDeErros.model.JwtResponse;
 import com.squad2.CentralDeErros.service.JwtUserDetailsService;
 import com.squad2.CentralDeErros.service.SecurityService;
+import com.squad2.CentralDeErros.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,7 +35,7 @@ public class AuthenticationController {
     private JwtUserDetailsService userDetailsService;
 
     @Autowired
-    private SecurityService securityService;
+    private UserService userService;
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
@@ -40,7 +43,9 @@ public class AuthenticationController {
         final UserDetails userDetails = userDetailsService
                 .loadUserByUsername(authenticationRequest.getEmail());
         final String token = jwtTokenUtil.generateToken(userDetails);
-        String authenticatedUserName = securityService.getUserAuthenticated().getName();
+
+        Authentication authentication =  SecurityContextHolder.getContext().getAuthentication();
+        String authenticatedUserName = userService.findUserByEmail(userDetails.getUsername()).getName();
         return ResponseEntity.ok(new JwtResponse(token,authenticatedUserName));
     }
 

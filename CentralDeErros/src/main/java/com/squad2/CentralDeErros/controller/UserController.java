@@ -4,6 +4,7 @@ import com.squad2.CentralDeErros.entity.Log;
 import com.squad2.CentralDeErros.entity.User;
 import com.squad2.CentralDeErros.entity.enumerate.Environment;
 import com.squad2.CentralDeErros.entity.enumerate.Status;
+import com.squad2.CentralDeErros.model.UserResponse;
 import com.squad2.CentralDeErros.service.LogService;
 import com.squad2.CentralDeErros.service.UserService;
 import org.json.JSONException;
@@ -26,29 +27,20 @@ public class UserController {
 
     @PostMapping("/registration")
     //public ResponseEntity<User> addUser(@RequestBody User user){
-    public  @ResponseBody ResponseEntity<JSONObject> addUser(@RequestBody User user) throws JSONException {
-       /* try {
-          return new ResponseEntity<>(userService.add(user),HttpStatus.CREATED);
-        }catch (Exception e){
+    public @ResponseBody
+    ResponseEntity<UserResponse> addUser(@RequestBody User user) throws JSONException {
+        try {
+                User userExists = userService.findUserByEmail(user.getEmail());
+                if (userExists != null) {
+                return new ResponseEntity<UserResponse>(new UserResponse(false, "User already exists.", userExists.getEmail()), HttpStatus.BAD_REQUEST);
+            }
+
+            userService.add(user);
+            return new ResponseEntity<>(new UserResponse(true, "User created.", user.getEmail()), HttpStatus.CREATED);
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        */
-        JSONObject responseJson = new JSONObject();
 
-        User userExists = userService.findUserByEmail(user.getEmail());
-        if (userExists != null) {
-            responseJson.put("status", "User already exists.");
-
-            return new ResponseEntity<JSONObject>(responseJson, HttpStatus.BAD_REQUEST);
-
-        }
-
-        userService.add (user);
-
-        responseJson.put("status", "User created.");
-        responseJson.put("user", user.getEmail());
-
-        return new ResponseEntity<JSONObject>(responseJson, HttpStatus.OK);
 
     }
 }
