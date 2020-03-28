@@ -3,13 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="1b592e54-1cbd-4f95-a479-485f4da80d8a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-End/central-erros/src/pages/SignUp/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/central-erros/src/pages/SignUp/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-End/central-erros/src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/central-erros/src/services/api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="front-end/integration" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1Za25BaiHaU0QZO1j2YcdU2jEq8" />
@@ -51,6 +61,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="249" y="54" width="924" height="684" key="Maven.ArtifactSearchDialog" timestamp="1585282402660">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="249" y="54" width="924" height="684" key="Maven.ArtifactSearchDialog/67.27.1299.741@67.27.1299.741" timestamp="1585282402660" />
     <state x="425" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585062876849">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
