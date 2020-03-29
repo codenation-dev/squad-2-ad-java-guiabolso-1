@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b592e54-1cbd-4f95-a479-485f4da80d8a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +23,20 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.CentralDeErrosApplication">
+    <configuration name="CentralDeErrosApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.squad2.CentralDeErros.CentralDeErrosApplication" />
+      <module name="CentralDeErros" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.squad2.CentralDeErros.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in CentralDeErros" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CentralDeErros" />
       <option name="PACKAGE_NAME" value="" />
@@ -33,6 +47,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CentralDeErrosApplication" />
         <item itemvalue="JUnit.All in CentralDeErros" />
       </list>
     </recent_temporary>
@@ -51,6 +66,14 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="381" y="881" width="1069" height="847" key="CommitChangelistDialog2" timestamp="1585504888931">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state x="381" y="881" width="1069" height="847" key="CommitChangelistDialog2/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585504888931" />
+    <state x="515" y="1041" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1585504884045">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state x="515" y="1041" width="800" height="528" key="Vcs.Push.Dialog.v2/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585504884045" />
     <state x="425" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585062876849">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
