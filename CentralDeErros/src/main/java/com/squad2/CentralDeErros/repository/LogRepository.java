@@ -41,4 +41,12 @@ public interface LogRepository extends JpaRepository<Log, Long> {
             "AND ENVIRONMENT = :environment",
             nativeQuery = true)
     List<Log> searchLogByEventDescriptionAndEnvIgnoreCase(@Param("keyword") String keyword, @Param("environment") int environment, @Param("status") int status, Pageable pageable);
+
+    @Query(value = "SELECT * " +
+            "FROM LOG " +
+            "WHERE USER_ID = :userId ",
+            nativeQuery = true)
+    List<Log> getLogByUserId(@Param("userId") Long userId);
+
+
 }

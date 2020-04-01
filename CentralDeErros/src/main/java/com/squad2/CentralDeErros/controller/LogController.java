@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -77,6 +76,11 @@ public class LogController {
         return logService.searchLogByEventDescriptionAndEnvIgnoreCase(keyword, environment, status, page, size, sortBy, direction);
 
 
+    }
+
+    @GetMapping("/getLogs")
+    public List<Log> getLogs() {
+        return logService.getLogsByUserId(securityService.getUserAuthenticated().getId());
     }
 
     @GetMapping("/teste")
