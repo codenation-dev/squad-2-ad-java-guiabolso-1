@@ -78,7 +78,7 @@ public class LogController {
 
     }
 
-    @GetMapping("/getLogs")
+    @GetMapping("/list")
     public List<Log> getLogs() {
         return logService.getLogsByUserId(securityService.getUserAuthenticated().getId());
     }
