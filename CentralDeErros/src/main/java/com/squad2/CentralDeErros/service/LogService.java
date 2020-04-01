@@ -30,6 +30,9 @@ public class LogService {
         return logRepository.findById(id);
     }
 
+    public List<Log> getLogsByUserId(Long userId) {
+        return logRepository.getLogByUserId(userId);
+    }
     public List<Log> getLogByUserId(Long userId, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
         return logRepository.getLogByUserId(userId, status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
     }
