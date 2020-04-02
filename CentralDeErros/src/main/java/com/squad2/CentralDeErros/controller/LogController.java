@@ -34,25 +34,23 @@ public class LogController {
         return logService.getLogById(id);
     }
 
-    @GetMapping(params = {"user"})
-    public List<Log> getLogByUserId(@RequestParam("user") Long userId,
-                                    @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
+    @GetMapping()
+    public List<Log> getLogByUserId(@RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
                                     @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
                                     @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
                                     @RequestParam(value = "sortBy", required = false, defaultValue = "ID") String sortBy,
                                     @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
-        return logService.getLogByUserId(userId, status, page, size, sortBy, direction);
+        return logService.getLogByUserId(securityService.getUserAuthenticated().getId(), status, page, size, sortBy, direction);
     }
 
-    @GetMapping(params = {"user", "env"})
-    public List<Log> getLogByUserIdAndEnv(@RequestParam("user") Long userId,
-                                          @RequestParam("env") Environment environment,
+    @GetMapping(params = {"env"})
+    public List<Log> getLogByUserIdAndEnv(@RequestParam("env") Environment environment,
                                           @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
                                           @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
                                           @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
                                           @RequestParam(value = "sortBy", required = false, defaultValue = "ID") String sortBy,
                                           @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
-        return logService.getLogByUserIdAndEnv(userId, environment, status, page, size, sortBy, direction);
+        return logService.getLogByUserIdAndEnv(securityService.getUserAuthenticated().getId(), environment, status, page, size, sortBy, direction);
     }
 
     @GetMapping(params = {"search"})
