@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -72,6 +69,21 @@ public class LogController {
                                                                  @RequestParam(value = "sortBy", required = false, defaultValue = "ID") String sortBy,
                                                                  @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
         return logService.searchLogByEventDescriptionAndEnvIgnoreCase(keyword, securityService.getUserAuthenticated().getId(), environment, status, page, size, sortBy, direction);
+    }
+
+    @PostMapping(params = "arc")
+    void archiveLog(@RequestParam("arc") Long logId) {
+        logService.archiveLog(logId, securityService.getUserAuthenticated().getId());
+    }
+
+    @PostMapping(params = "del")
+    void deleteLog(@RequestParam("del") Long logId) {
+        logService.deleteLog(logId, securityService.getUserAuthenticated().getId());
+    }
+
+    @PostMapping(params = "res")
+    void restoreLog(@RequestParam("res") Long logId) {
+        logService.restoreLog(logId, securityService.getUserAuthenticated().getId());
     }
 
     @GetMapping("/list")
