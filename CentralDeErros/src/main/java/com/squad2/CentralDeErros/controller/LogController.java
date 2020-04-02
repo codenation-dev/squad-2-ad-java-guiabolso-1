@@ -60,7 +60,7 @@ public class LogController {
                                                  @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
                                                  @RequestParam(value = "sortBy", required = false, defaultValue = "ID") String sortBy,
                                                  @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
-        return logService.searchLogByEventDescriptionIgnoreCase(keyword, status, page, size, sortBy, direction);
+        return logService.searchLogByEventDescriptionIgnoreCase(keyword, securityService.getUserAuthenticated().getId(), status, page, size, sortBy, direction);
     }
 
     @GetMapping(params = {"search", "env"})
@@ -71,9 +71,7 @@ public class LogController {
                                                                  @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
                                                                  @RequestParam(value = "sortBy", required = false, defaultValue = "ID") String sortBy,
                                                                  @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
-        return logService.searchLogByEventDescriptionAndEnvIgnoreCase(keyword, environment, status, page, size, sortBy, direction);
-
-
+        return logService.searchLogByEventDescriptionAndEnvIgnoreCase(keyword, securityService.getUserAuthenticated().getId(), environment, status, page, size, sortBy, direction);
     }
 
     @GetMapping("/list")
