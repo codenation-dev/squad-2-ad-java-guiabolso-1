@@ -3,18 +3,29 @@
 INSERT INTO ROLES (ROLE) VALUES ('ADMIN');
 INSERT INTO ROLES (ROLE) VALUES ('USER');
 
+/* Squad2 members */
 INSERT INTO USERS (id, active, created, email, name, password) VALUES (1, true, now(), 'renata@abreu', 'Renata Abreu', '$2a$10$BXrgTIQ.BY9DinOCYQLt9uT4kuNlAu2HXs0G2.Qnf5IeqjzgV0ECG');
 INSERT INTO USERS (id, active, created, email, name, password) VALUES (2, true, now(), 'grace@ferrari', 'Grace Ferrari', '$2a$10$BXrgTIQ.BY9DinOCYQLt9uT4kuNlAu2HXs0G2.Qnf5IeqjzgV0ECG');
 INSERT INTO USERS (id, active, created, email, name, password) VALUES (3, true, now(), 'jaqueline@nascimento', 'Jaqueline Nascimento', '$2a$10$BXrgTIQ.BY9DinOCYQLt9uT4kuNlAu2HXs0G2.Qnf5IeqjzgV0ECG');
 INSERT INTO USERS (id, active, created, email, name, password) VALUES (4, true, now(), 'caue@franca', 'Cauê França', '$2a$10$BXrgTIQ.BY9DinOCYQLt9uT4kuNlAu2HXs0G2.Qnf5IeqjzgV0ECG');
 INSERT INTO USERS (id, active, created, email, name, password) VALUES (5, true, now(), 'luana@carolina', 'Luana Carolina', '$2a$10$BXrgTIQ.BY9DinOCYQLt9uT4kuNlAu2HXs0G2.Qnf5IeqjzgV0ECG');
 
+/* Admin user */
+INSERT INTO USERS (id, active, created, email, name, password) VALUES (6, true, now(), 'admin@admin', 'Administrator', '$2a$10$BXrgTIQ.BY9DinOCYQLt9uT4kuNlAu2HXs0G2.Qnf5IeqjzgV0ECG');
+
+/* Squad2 members roles */
 INSERT INTO USER_ROLE (user_id, role_id) VALUES (1, 2);
 INSERT INTO USER_ROLE (user_id, role_id) VALUES (2, 2);
 INSERT INTO USER_ROLE (user_id, role_id) VALUES (3, 2);
 INSERT INTO USER_ROLE (user_id, role_id) VALUES (4, 2);
 INSERT INTO USER_ROLE (user_id, role_id) VALUES (5, 2);
 
+/* Admin user roles */
+INSERT INTO USER_ROLE (user_id, role_id) VALUES (6, 1);
+INSERT INTO USER_ROLE (user_id, role_id) VALUES (6, 2);
+
+
+/* Log entries */
 INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (1, now(), 0, 'Description', 'Event Log', 0, 'Source', 0, 1);
 INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (2, now(), 1, 'Description', 'Event Log', 1, 'Source', 0, 1);
 INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (3, now(), 2, 'Description', 'Event Log', 2, 'Source', 0, 1);
