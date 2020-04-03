@@ -30,52 +30,113 @@ public class LogController {
     private SecurityService securityService;
 
     @GetMapping(params = {"id"})
-    public Optional<Log> getLogById(@RequestParam("id") Long id) {
-        return logService.getLogById(id);
+    public ResponseEntity<Optional<Log>> getLogById(@RequestParam("id") Long id) {
+        try {
+            return new ResponseEntity<>(logService.getLogById(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
-    @GetMapping(params = {"user"})
-    public List<Log> getLogByUserId(@RequestParam("user") Long userId,
-                                    @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
+    @GetMapping()
+    public ResponseEntity<List<Log>> getLogsByAuthenticatedUser(@RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
                                     @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
                                     @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
                                     @RequestParam(value = "sortBy", required = false, defaultValue = "ID") String sortBy,
                                     @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
-        return logService.getLogByUserId(userId, status, page, size, sortBy, direction);
+        try {
+            return new ResponseEntity<>(logService.getLogsByUserId(securityService.getUserAuthenticated().getId(), status, page, size, sortBy, direction), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
-    @GetMapping(params = {"user", "env"})
-    public List<Log> getLogByUserIdAndEnv(@RequestParam("user") Long userId,
-                                          @RequestParam("env") Environment environment,
+    @GetMapping(params = {"env"})
+    public ResponseEntity<List<Log>> getLogsByAuthenticatedUserAndEnv(@RequestParam("env") Environment environment,
                                           @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
                                           @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
                                           @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
                                           @RequestParam(value = "sortBy", required = false, defaultValue = "ID") String sortBy,
                                           @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
-        return logService.getLogByUserIdAndEnv(userId, environment, status, page, size, sortBy, direction);
+        try {
+            return new ResponseEntity<>(logService.getLogsByUserIdAndEnv(securityService.getUserAuthenticated().getId(), environment, status, page, size, sortBy, direction), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping(params = {"search"})
-    public List<Log> searchLogByEventDescription(@RequestParam("search") String keyword,
+    public ResponseEntity<List<Log>> searchLogByEventDescription(@RequestParam("search") String keyword,
                                                  @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
                                                  @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
                                                  @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
                                                  @RequestParam(value = "sortBy", required = false, defaultValue = "ID") String sortBy,
                                                  @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
-        return logService.searchLogByEventDescriptionIgnoreCase(keyword, status, page, size, sortBy, direction);
+        try {
+            return new ResponseEntity<>(logService.searchLogByEventDescriptionIgnoreCase(keyword, securityService.getUserAuthenticated().getId(), status, page, size, sortBy, direction), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping(params = {"search", "env"})
-    public List<Log> searchLogByEventDescriptionAndEnvIgnoreCase(@RequestParam("search") String keyword,
+    public ResponseEntity<List<Log>> searchLogByEventDescriptionAndEnvIgnoreCase(@RequestParam("search") String keyword,
                                                                  @RequestParam("env") Environment environment,
                                                                  @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
                                                                  @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
                                                                  @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
                                                                  @RequestParam(value = "sortBy", required = false, defaultValue = "ID") String sortBy,
                                                                  @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
-        return logService.searchLogByEventDescriptionAndEnvIgnoreCase(keyword, environment, status, page, size, sortBy, direction);
+        try {
+            return new ResponseEntity<>(logService.searchLogByEventDescriptionAndEnvIgnoreCase(keyword, securityService.getUserAuthenticated().getId(), environment, status, page, size, sortBy, direction), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
 
+    @GetMapping(params = "archive")
+    public ResponseEntity<Log> archiveLog(@RequestParam("archive") Long logId) {
+        Log log = logService.getLogById(logId).get();
 
+        if (log != null && log.getUser().getId() == securityService.getUserAuthenticated().getId()) {
+            try {
+                log.setStatus(Status.ARCHIVED);
+                return new ResponseEntity<>(logService.update(log), HttpStatus.ACCEPTED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        }
+        return null;
+    }
+
+    @GetMapping(params = "delete")
+    public ResponseEntity<Log> deleteLog(@RequestParam("delete") Long logId) {
+        Log log = logService.getLogById(logId).get();
+
+        if (log != null && log.getUser().getId() == securityService.getUserAuthenticated().getId()) {
+            try {
+                log.setStatus(Status.DELETED);
+                return new ResponseEntity<>(logService.update(log), HttpStatus.ACCEPTED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        }
+        return null;
+    }
+
+    @GetMapping(params = "restore")
+    public ResponseEntity<Log> restoreLog(@RequestParam("restore") Long logId) {
+        Log log = logService.getLogById(logId).get();
+
+        if (log != null && log.getUser().getId() == securityService.getUserAuthenticated().getId()) {
+            try {
+                log.setStatus(Status.ACTIVE);
+                return new ResponseEntity<>(logService.update(log), HttpStatus.ACCEPTED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        }
+        return null;
     }
 
     @GetMapping("/list")
@@ -86,8 +147,8 @@ public class LogController {
     @GetMapping("/teste")
     public ResponseEntity<User> getLogTeste() {
         try {
-            return new ResponseEntity<>(securityService.getUserAuthenticated(),HttpStatus.OK);
-        }catch (Exception e){
+            return new ResponseEntity<>(securityService.getUserAuthenticated(), HttpStatus.OK);
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }

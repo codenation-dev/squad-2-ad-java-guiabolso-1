@@ -13,14 +13,14 @@ import java.util.List;
 public interface LogRepository extends JpaRepository<Log, Long> {
 
     @Query(value = "SELECT * " +
-            "FROM LOG " +
+            "FROM LOGS " +
             "WHERE USER_ID = :userId " +
             "AND STATUS = :status",
             nativeQuery = true)
     List<Log> getLogByUserId(@Param("userId") Long userId, @Param("status") int status, Pageable pageable);
 
     @Query(value = "SELECT * " +
-            "FROM LOG " +
+            "FROM LOGS " +
             "WHERE USER_ID = :userId " +
             "AND STATUS = :status " +
             "AND ENVIRONMENT = :environment",
@@ -28,25 +28,25 @@ public interface LogRepository extends JpaRepository<Log, Long> {
     List<Log> getLogByUserIdAndEnv(@Param("userId") Long userId, @Param("environment") int environment, @Param("status") int status, Pageable pageable);
 
     @Query(value = "SELECT * " +
-            "FROM LOG " +
+            "FROM LOGS " +
             "WHERE LOWER(EVENT_DESCRIPTION) LIKE '%' || LOWER(:keyword) || '%' " +
-            "AND STATUS = :status ",
+            "AND STATUS = :status " +
+            "AND USER_ID = :userId",
             nativeQuery = true)
-    List<Log> searchLogByEventDescriptionIgnoreCase(@Param("keyword") String keyword, @Param("status") int status, Pageable pageable);
+    List<Log> searchLogByEventDescriptionIgnoreCase(@Param("keyword") String keyword, @Param("userId") Long userId, @Param("status") int status, Pageable pageable);
 
     @Query(value = "SELECT * " +
-            "FROM LOG " +
+            "FROM LOGS " +
             "WHERE LOWER(EVENT_DESCRIPTION) LIKE '%' || LOWER(:keyword) || '%' " +
+            "AND USER_ID = :userId " +
             "AND STATUS = :status " +
             "AND ENVIRONMENT = :environment",
             nativeQuery = true)
-    List<Log> searchLogByEventDescriptionAndEnvIgnoreCase(@Param("keyword") String keyword, @Param("environment") int environment, @Param("status") int status, Pageable pageable);
+    List<Log> searchLogByEventDescriptionAndEnvIgnoreCase(@Param("keyword") String keyword, @Param("userId") Long userId, @Param("environment") int environment, @Param("status") int status, Pageable pageable);
 
     @Query(value = "SELECT * " +
-            "FROM LOG " +
+            "FROM LOGS " +
             "WHERE USER_ID = :userId ",
             nativeQuery = true)
     List<Log> getLogByUserId(@Param("userId") Long userId);
-
-
 }

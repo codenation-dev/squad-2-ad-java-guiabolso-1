@@ -1,46 +1,56 @@
 /* DADOS INICIAIS PARA TESTE */
-INSERT INTO USER VALUES (1, 'Renata');
-INSERT INTO USER VALUES (2, 'Grace');
-INSERT INTO USER VALUES (3, 'Caue');
-INSERT INTO USER VALUES (4, 'Jaqueline');
-INSERT INTO USER VALUES (5, 'Luana');
 
-INSERT INTO LOG VALUES (1, CURRENT_TIMESTAMP(), 0, 'Description', 'Event Long', 0, 'Source', 0, 1);
-INSERT INTO LOG VALUES (2, CURRENT_TIMESTAMP(), 1, 'Description', 'Event Long', 1, 'Source', 0, 1);
-INSERT INTO LOG VALUES (3, CURRENT_TIMESTAMP(), 2, 'Description', 'Event Long', 2, 'Source', 0, 1);
+INSERT INTO ROLES (ROLE) VALUES ('ADMIN');
+INSERT INTO ROLES (ROLE) VALUES ('USER');
 
-INSERT INTO LOG VALUES (4, CURRENT_TIMESTAMP(), 0, 'Description', 'Event Long', 0, 'Source', 0, 2);
-INSERT INTO LOG VALUES (5, CURRENT_TIMESTAMP(), 1, 'Description', 'Event Long', 1, 'Source', 0, 2);
-INSERT INTO LOG VALUES (6, CURRENT_TIMESTAMP(), 2, 'Description', 'Event Long', 2, 'Source', 0, 2);
+INSERT INTO USERS (id, active, created, email, name, password) VALUES (1, true, now(), 'renata@abreu', 'Renata Abreu', '$2a$10$BXrgTIQ.BY9DinOCYQLt9uT4kuNlAu2HXs0G2.Qnf5IeqjzgV0ECG');
+INSERT INTO USERS (id, active, created, email, name, password) VALUES (2, true, now(), 'grace@ferrari', 'Grace Ferrari', '$2a$10$BXrgTIQ.BY9DinOCYQLt9uT4kuNlAu2HXs0G2.Qnf5IeqjzgV0ECG');
+INSERT INTO USERS (id, active, created, email, name, password) VALUES (3, true, now(), 'jaqueline@nascimento', 'Jaqueline Nascimento', '$2a$10$BXrgTIQ.BY9DinOCYQLt9uT4kuNlAu2HXs0G2.Qnf5IeqjzgV0ECG');
+INSERT INTO USERS (id, active, created, email, name, password) VALUES (4, true, now(), 'caue@franca', 'Cauê França', '$2a$10$BXrgTIQ.BY9DinOCYQLt9uT4kuNlAu2HXs0G2.Qnf5IeqjzgV0ECG');
+INSERT INTO USERS (id, active, created, email, name, password) VALUES (5, true, now(), 'luana@carolina', 'Luana Carolina', '$2a$10$BXrgTIQ.BY9DinOCYQLt9uT4kuNlAu2HXs0G2.Qnf5IeqjzgV0ECG');
 
-INSERT INTO LOG VALUES (7, CURRENT_TIMESTAMP(), 0, 'Description', 'Event Long', 0, 'Source', 0, 3);
-INSERT INTO LOG VALUES (8, CURRENT_TIMESTAMP(), 1, 'Description', 'Event Long', 1, 'Source', 0, 3);
-INSERT INTO LOG VALUES (9, CURRENT_TIMESTAMP(), 2, 'Description', 'Event Long', 2, 'Source', 0, 3);
+INSERT INTO USER_ROLE (user_id, role_id) VALUES (1, 2);
+INSERT INTO USER_ROLE (user_id, role_id) VALUES (2, 2);
+INSERT INTO USER_ROLE (user_id, role_id) VALUES (3, 2);
+INSERT INTO USER_ROLE (user_id, role_id) VALUES (4, 2);
+INSERT INTO USER_ROLE (user_id, role_id) VALUES (5, 2);
 
-INSERT INTO LOG VALUES (10, CURRENT_TIMESTAMP(), 0, 'Description', 'Event Long', 0, 'Source', 0, 4);
-INSERT INTO LOG VALUES (11, CURRENT_TIMESTAMP(), 1, 'Description', 'Event Long', 1, 'Source', 0, 4);
-INSERT INTO LOG VALUES (12, CURRENT_TIMESTAMP(), 2, 'Description', 'Event Long', 2, 'Source', 0, 4);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (1, now(), 0, 'Description', 'Event Log', 0, 'Source', 0, 1);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (2, now(), 1, 'Description', 'Event Log', 1, 'Source', 0, 1);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (3, now(), 2, 'Description', 'Event Log', 2, 'Source', 0, 1);
 
-INSERT INTO LOG VALUES (13, CURRENT_TIMESTAMP(), 0, 'Description', 'Event Long', 0, 'Source', 0, 5);
-INSERT INTO LOG VALUES (14, CURRENT_TIMESTAMP(), 1, 'Description', 'Event Long', 1, 'Source', 0, 5);
-INSERT INTO LOG VALUES (15, CURRENT_TIMESTAMP(), 2, 'Description', 'Event Long', 2, 'Source', 0, 5);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (4, now(), 0, 'Description', 'Event Log', 0, 'Source', 0, 2);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (5, now(), 1, 'Description', 'Event Log', 1, 'Source', 0, 2);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (6, now(), 2, 'Description', 'Event Log', 2, 'Source', 0, 2);
 
-INSERT INTO LOG VALUES (16, CURRENT_TIMESTAMP(), 0, 'Description', 'Event Long', 0, 'Source', 1, 1);
-INSERT INTO LOG VALUES (17, CURRENT_TIMESTAMP(), 1, 'Description', 'Event Long', 1, 'Source', 1, 1);
-INSERT INTO LOG VALUES (18, CURRENT_TIMESTAMP(), 2, 'Description', 'Event Long', 2, 'Source', 1, 1);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (7, now(), 0, 'Description', 'Event Log', 0, 'Source', 0, 3);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (8, now(), 1, 'Description', 'Event Log', 1, 'Source', 0, 3);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (9, now(), 2, 'Description', 'Event Log', 2, 'Source', 0, 3);
 
-INSERT INTO LOG VALUES (19, CURRENT_TIMESTAMP(), 0, 'Description', 'Event Long', 0, 'Source', 1, 2);
-INSERT INTO LOG VALUES (20, CURRENT_TIMESTAMP(), 1, 'Description', 'Event Long', 1, 'Source', 1, 2);
-INSERT INTO LOG VALUES (21, CURRENT_TIMESTAMP(), 2, 'Description', 'Event Long', 2, 'Source', 1, 2);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (10, now(), 0, 'Description', 'Event Log', 0, 'Source', 0, 4);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (11, now(), 1, 'Description', 'Event Log', 1, 'Source', 0, 4);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (12, now(), 2, 'Description', 'Event Log', 2, 'Source', 0, 4);
 
-INSERT INTO LOG VALUES (22, CURRENT_TIMESTAMP(), 0, 'Description', 'Event Long', 0, 'Source', 1, 3);
-INSERT INTO LOG VALUES (23, CURRENT_TIMESTAMP(), 1, 'Description', 'Event Long', 1, 'Source', 1, 3);
-INSERT INTO LOG VALUES (24, CURRENT_TIMESTAMP(), 2, 'Description', 'Event Long', 2, 'Source', 1, 3);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (13, now(), 0, 'Description', 'Event Log', 0, 'Source', 0, 5);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (14, now(), 1, 'Description', 'Event Log', 1, 'Source', 0, 5);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (15, now(), 2, 'Description', 'Event Log', 2, 'Source', 0, 5);
 
-INSERT INTO LOG VALUES (25, CURRENT_TIMESTAMP(), 0, 'Description', 'Event Long', 0, 'Source', 1, 4);
-INSERT INTO LOG VALUES (26, CURRENT_TIMESTAMP(), 1, 'Description', 'Event Long', 1, 'Source', 1, 4);
-INSERT INTO LOG VALUES (27, CURRENT_TIMESTAMP(), 2, 'Description', 'Event Long', 2, 'Source', 1, 4);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (16, now(), 0, 'Description', 'Event Log', 0, 'Source', 1, 1);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (17, now(), 1, 'Description', 'Event Log', 1, 'Source', 1, 1);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (18, now(), 2, 'Description', 'Event Log', 2, 'Source', 1, 1);
 
-INSERT INTO LOG VALUES (28, CURRENT_TIMESTAMP(), 0, 'Description', 'Event Long', 0, 'Source', 1, 5);
-INSERT INTO LOG VALUES (29, CURRENT_TIMESTAMP(), 1, 'Description', 'Event Long', 1, 'Source', 1, 5);
-INSERT INTO LOG VALUES (30, CURRENT_TIMESTAMP(), 2, 'Description', 'Event Long', 2, 'Source', 1, 5);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (19, now(), 0, 'Description', 'Event Log', 0, 'Source', 1, 2);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (20, now(), 1, 'Description', 'Event Log', 1, 'Source', 1, 2);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (21, now(), 2, 'Description', 'Event Log', 2, 'Source', 1, 2);
+
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (22, now(), 0, 'Description', 'Event Log', 0, 'Source', 1, 3);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (23, now(), 1, 'Description', 'Event Log', 1, 'Source', 1, 3);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (24, now(), 2, 'Description', 'Event Log', 2, 'Source', 1, 3);
+
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (25, now(), 0, 'Description', 'Event Log', 0, 'Source', 1, 4);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (26, now(), 1, 'Description', 'Event Log', 1, 'Source', 1, 4);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (27, now(), 2, 'Description', 'Event Log', 2, 'Source', 1, 4);
+
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (28, now(), 0, 'Description', 'Event Log', 0, 'Source', 1, 5);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (29, now(), 1, 'Description', 'Event Log', 1, 'Source', 1, 5);
+INSERT INTO LOGS (id, date, environment, event_description, event_log, level, source, status, user_id) VALUES (30, now(), 2, 'Description', 'Event Log', 2, 'Source', 1, 5);
