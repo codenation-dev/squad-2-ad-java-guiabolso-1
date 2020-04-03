@@ -38,7 +38,7 @@ public interface LogRepository extends JpaRepository<Log, Long> {
     @Query(value = "SELECT * " +
             "FROM LOGS " +
             "WHERE LOWER(EVENT_DESCRIPTION) LIKE '%' || LOWER(:keyword) || '%' " +
-            "AND USER_ID = :userId" +
+            "AND USER_ID = :userId " +
             "AND STATUS = :status " +
             "AND ENVIRONMENT = :environment",
             nativeQuery = true)
