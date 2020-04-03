@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
+@Table(name="logs")
 public class Log {
 
     @Id
