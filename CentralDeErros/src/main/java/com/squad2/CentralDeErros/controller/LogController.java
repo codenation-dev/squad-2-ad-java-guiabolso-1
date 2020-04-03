@@ -71,19 +71,49 @@ public class LogController {
         return logService.searchLogByEventDescriptionAndEnvIgnoreCase(keyword, securityService.getUserAuthenticated().getId(), environment, status, page, size, sortBy, direction);
     }
 
-    @PostMapping(params = "arc")
-    void archiveLog(@RequestParam("arc") Long logId) {
-        logService.archiveLog(logId, securityService.getUserAuthenticated().getId());
+    @GetMapping(params = "archive")
+    public ResponseEntity<Log> archiveLog(@RequestParam("archive") Long logId) {
+        Log log = getLogById(logId).get();
+
+        if (log != null && log.getUser().getId() == securityService.getUserAuthenticated().getId()) {
+            try {
+                log.setStatus(Status.ARCHIVED);
+                return new ResponseEntity<>(logService.update(log), HttpStatus.ACCEPTED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        }
+        return null;
     }
 
-    @PostMapping(params = "del")
-    void deleteLog(@RequestParam("del") Long logId) {
-        logService.deleteLog(logId, securityService.getUserAuthenticated().getId());
+    @GetMapping(params = "delete")
+    public ResponseEntity<Log> deleteLog(@RequestParam("delete") Long logId) {
+        Log log = getLogById(logId).get();
+
+        if (log != null && log.getUser().getId() == securityService.getUserAuthenticated().getId()) {
+            try {
+                log.setStatus(Status.DELETED);
+                return new ResponseEntity<>(logService.update(log), HttpStatus.ACCEPTED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        }
+        return null;
     }
 
-    @PostMapping(params = "res")
-    void restoreLog(@RequestParam("res") Long logId) {
-        logService.restoreLog(logId, securityService.getUserAuthenticated().getId());
+    @GetMapping(params = "restore")
+    public ResponseEntity<Log> restoreLog(@RequestParam("restore") Long logId) {
+        Log log = getLogById(logId).get();
+
+        if (log != null && log.getUser().getId() == securityService.getUserAuthenticated().getId()) {
+            try {
+                log.setStatus(Status.ACTIVE);
+                return new ResponseEntity<>(logService.update(log), HttpStatus.ACCEPTED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        }
+        return null;
     }
 
     @GetMapping("/list")
@@ -94,8 +124,8 @@ public class LogController {
     @GetMapping("/teste")
     public ResponseEntity<User> getLogTeste() {
         try {
-            return new ResponseEntity<>(securityService.getUserAuthenticated(),HttpStatus.OK);
-        }catch (Exception e){
+            return new ResponseEntity<>(securityService.getUserAuthenticated(), HttpStatus.OK);
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }

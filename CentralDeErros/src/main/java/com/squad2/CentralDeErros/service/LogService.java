@@ -48,16 +48,4 @@ public class LogService {
     public List<Log> searchLogByEventDescriptionAndEnvIgnoreCase(String keyword, Long userId, Environment environment, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
         return logRepository.searchLogByEventDescriptionAndEnvIgnoreCase(keyword, userId, environment.ordinal(), status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
     }
-
-    public void archiveLog(Long logId, Long userId) {
-        logRepository.archiveLog(logId, userId);
-    }
-
-    public void deleteLog(Long logId, Long userId) {
-        logRepository.deleteLog(logId, userId);
-    }
-
-    public void restoreLog(Long logId, Long userId) {
-        logRepository.restoreLog(logId, userId);
-    }
 }
