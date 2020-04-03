@@ -21,11 +21,24 @@ public interface LogRepository extends JpaRepository<Log, Long> {
 
     @Query(value = "SELECT * " +
             "FROM LOGS " +
+            "WHERE STATUS = :status",
+            nativeQuery = true)
+    List<Log> getLogs(@Param("status") int status, Pageable pageable);
+
+    @Query(value = "SELECT * " +
+            "FROM LOGS " +
             "WHERE USER_ID = :userId " +
             "AND STATUS = :status " +
             "AND ENVIRONMENT = :environment",
             nativeQuery = true)
     List<Log> getLogByUserIdAndEnv(@Param("userId") Long userId, @Param("environment") int environment, @Param("status") int status, Pageable pageable);
+
+    @Query(value = "SELECT * " +
+            "FROM LOGS " +
+            "WHERE STATUS = :status " +
+            "AND ENVIRONMENT = :environment",
+            nativeQuery = true)
+    List<Log> getLogsByEnv(@Param("environment") int environment, @Param("status") int status, Pageable pageable);
 
     @Query(value = "SELECT * " +
             "FROM LOGS " +
@@ -38,11 +51,26 @@ public interface LogRepository extends JpaRepository<Log, Long> {
     @Query(value = "SELECT * " +
             "FROM LOGS " +
             "WHERE LOWER(EVENT_DESCRIPTION) LIKE '%' || LOWER(:keyword) || '%' " +
+            "AND STATUS = :status ",
+            nativeQuery = true)
+    List<Log> searchLogByEventDescriptionIgnoreCaseAdmin(@Param("keyword") String keyword, @Param("status") int status, Pageable pageable);
+
+    @Query(value = "SELECT * " +
+            "FROM LOGS " +
+            "WHERE LOWER(EVENT_DESCRIPTION) LIKE '%' || LOWER(:keyword) || '%' " +
             "AND USER_ID = :userId " +
             "AND STATUS = :status " +
             "AND ENVIRONMENT = :environment",
             nativeQuery = true)
     List<Log> searchLogByEventDescriptionAndEnvIgnoreCase(@Param("keyword") String keyword, @Param("userId") Long userId, @Param("environment") int environment, @Param("status") int status, Pageable pageable);
+
+    @Query(value = "SELECT * " +
+            "FROM LOGS " +
+            "WHERE LOWER(EVENT_DESCRIPTION) LIKE '%' || LOWER(:keyword) || '%' " +
+            "AND STATUS = :status " +
+            "AND ENVIRONMENT = :environment",
+            nativeQuery = true)
+    List<Log> searchLogByEventDescriptionAndEnvIgnoreCaseAdmin(@Param("keyword") String keyword, @Param("environment") int environment, @Param("status") int status, Pageable pageable);
 
     @Query(value = "SELECT * " +
             "FROM LOGS " +
