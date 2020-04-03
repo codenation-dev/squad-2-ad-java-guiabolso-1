@@ -31,12 +31,19 @@ public class LogController {
 
     @GetMapping(params = {"id"})
     public ResponseEntity<Optional<Log>> getLogById(@RequestParam("id") Long id) {
-        try {
-            return new ResponseEntity<>(logService.getLogById(id), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        Optional<Log> log = logService.getLogById(id);
+
+        if (log.get() != null && log.get().getUser().getId() == securityService.getUserAuthenticated().getId()) {
+            try {
+                return new ResponseEntity<>(logService.getLogById(id), HttpStatus.OK);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
         }
+
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
 
     @GetMapping()
     public ResponseEntity<List<Log>> getLogsByAuthenticatedUser(@RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
@@ -106,7 +113,7 @@ public class LogController {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
         }
-        return null;
+        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
 
     @GetMapping(params = "delete")
@@ -121,7 +128,7 @@ public class LogController {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
         }
-        return null;
+        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
 
     @GetMapping(params = "restore")
@@ -136,7 +143,7 @@ public class LogController {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
         }
-        return null;
+        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
 
     @GetMapping("/list")
