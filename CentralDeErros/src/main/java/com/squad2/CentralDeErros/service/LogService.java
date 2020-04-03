@@ -33,11 +33,11 @@ public class LogService {
     public List<Log> getLogsByUserId(Long userId) {
         return logRepository.getLogByUserId(userId);
     }
-    public List<Log> getLogByUserId(Long userId, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
+    public List<Log> getLogsByUserId(Long userId, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
         return logRepository.getLogByUserId(userId, status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
     }
 
-    public List<Log> getLogByUserIdAndEnv(Long userId, Environment environment, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
+    public List<Log> getLogsByUserIdAndEnv(Long userId, Environment environment, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
         return logRepository.getLogByUserIdAndEnv(userId, environment.ordinal(), status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
     }
 

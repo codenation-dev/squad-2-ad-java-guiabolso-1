@@ -39,27 +39,27 @@ public class LogController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<Log>> getLogByUserId(@RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
+    public ResponseEntity<List<Log>> getLogsByAuthenticatedUser(@RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
                                     @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
                                     @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
                                     @RequestParam(value = "sortBy", required = false, defaultValue = "ID") String sortBy,
                                     @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
         try {
-            return new ResponseEntity<>(logService.getLogByUserId(securityService.getUserAuthenticated().getId(), status, page, size, sortBy, direction), HttpStatus.OK);
+            return new ResponseEntity<>(logService.getLogsByUserId(securityService.getUserAuthenticated().getId(), status, page, size, sortBy, direction), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
     @GetMapping(params = {"env"})
-    public ResponseEntity<List<Log>> getLogByUserIdAndEnv(@RequestParam("env") Environment environment,
+    public ResponseEntity<List<Log>> getLogsByAuthenticatedUserAndEnv(@RequestParam("env") Environment environment,
                                           @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
                                           @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
                                           @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
                                           @RequestParam(value = "sortBy", required = false, defaultValue = "ID") String sortBy,
                                           @RequestParam(value = "direction", required = false, defaultValue = "ASC") Sort.Direction direction) {
         try {
-            return new ResponseEntity<>(logService.getLogByUserIdAndEnv(securityService.getUserAuthenticated().getId(), environment, status, page, size, sortBy, direction), HttpStatus.OK);
+            return new ResponseEntity<>(logService.getLogsByUserIdAndEnv(securityService.getUserAuthenticated().getId(), environment, status, page, size, sortBy, direction), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
