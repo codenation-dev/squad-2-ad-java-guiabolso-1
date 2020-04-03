@@ -113,7 +113,7 @@ public class LogController {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
         }
-        return null;
+        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
 
     @GetMapping(params = "delete")
@@ -128,7 +128,7 @@ public class LogController {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
         }
-        return null;
+        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
 
     @GetMapping(params = "restore")
@@ -143,7 +143,7 @@ public class LogController {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
         }
-        return null;
+        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
 
     @GetMapping("/list")
