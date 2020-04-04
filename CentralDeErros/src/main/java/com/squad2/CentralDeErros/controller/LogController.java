@@ -39,15 +39,17 @@ public class LogController {
     public ResponseEntity<Optional<Log>> getLogById(@RequestParam("id") Long id) {
         Optional<Log> log = logService.getLogById(id);
 
-        if (log.get() != null && log.get().getUser().getId() == securityService.getUserAuthenticated().getId()) {
+        if(!log.isPresent())
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+        if (log.get().getUser().getId() == securityService.getUserAuthenticated().getId()) {
             try {
                 return new ResponseEntity<>(logService.getLogById(id), HttpStatus.OK);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
         }
-
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
 
 
