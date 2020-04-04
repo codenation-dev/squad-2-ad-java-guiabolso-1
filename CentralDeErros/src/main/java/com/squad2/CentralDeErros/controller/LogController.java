@@ -39,15 +39,17 @@ public class LogController {
     public ResponseEntity<Optional<Log>> getLogById(@RequestParam("id") Long id) {
         Optional<Log> log = logService.getLogById(id);
 
-        if (log.get() != null && log.get().getUser().getId() == securityService.getUserAuthenticated().getId()) {
+        if(!log.isPresent())
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+        if (log.get().getUser().getId() == securityService.getUserAuthenticated().getId()) {
             try {
                 return new ResponseEntity<>(logService.getLogById(id), HttpStatus.OK);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
         }
-
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
 
 
@@ -129,13 +131,17 @@ public class LogController {
 
     @GetMapping(params = "archive")
     public ResponseEntity<Log> archiveLog(@RequestParam("archive") Long logId) {
-        Log log = logService.getLogById(logId).get();
+        Optional<Log> log = logService.getLogById(logId);
+
+        if (!log.isPresent())
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
         Set<Role> role = securityService.getUserAuthenticated().getRoles();
 
-        if ((log != null && log.getUser().getId() == securityService.getUserAuthenticated().getId()) || role.contains(roleService.findByRole("ADMIN"))) {
+        if (log.get().getUser().getId() == securityService.getUserAuthenticated().getId() || role.contains(roleService.findByRole("ADMIN"))) {
             try {
-                log.setStatus(Status.ARCHIVED);
-                return new ResponseEntity<>(logService.update(log), HttpStatus.ACCEPTED);
+                log.get().setStatus(Status.ARCHIVED);
+                return new ResponseEntity<>(logService.update(log.get()), HttpStatus.ACCEPTED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
@@ -145,13 +151,17 @@ public class LogController {
 
     @GetMapping(params = "delete")
     public ResponseEntity<Log> deleteLog(@RequestParam("delete") Long logId) {
-        Log log = logService.getLogById(logId).get();
+        Optional<Log> log = logService.getLogById(logId);
+
+        if (!log.isPresent())
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
         Set<Role> role = securityService.getUserAuthenticated().getRoles();
 
-        if ((log != null && log.getUser().getId() == securityService.getUserAuthenticated().getId()) || role.contains(roleService.findByRole("ADMIN"))) {
+        if (log.get().getUser().getId() == securityService.getUserAuthenticated().getId() || role.contains(roleService.findByRole("ADMIN"))) {
             try {
-                log.setStatus(Status.DELETED);
-                return new ResponseEntity<>(logService.update(log), HttpStatus.ACCEPTED);
+                log.get().setStatus(Status.DELETED);
+                return new ResponseEntity<>(logService.update(log.get()), HttpStatus.ACCEPTED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
@@ -161,13 +171,17 @@ public class LogController {
 
     @GetMapping(params = "restore")
     public ResponseEntity<Log> restoreLog(@RequestParam("restore") Long logId) {
-        Log log = logService.getLogById(logId).get();
+        Optional<Log> log = logService.getLogById(logId);
+
+        if (!log.isPresent())
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
         Set<Role> role = securityService.getUserAuthenticated().getRoles();
 
-        if ((log != null && log.getUser().getId() == securityService.getUserAuthenticated().getId()) || role.contains(roleService.findByRole("ADMIN"))) {
+        if (log.get().getUser().getId() == securityService.getUserAuthenticated().getId() || role.contains(roleService.findByRole("ADMIN"))) {
             try {
-                log.setStatus(Status.ACTIVE);
-                return new ResponseEntity<>(logService.update(log), HttpStatus.ACCEPTED);
+                log.get().setStatus(Status.ACTIVE);
+                return new ResponseEntity<>(logService.update(log.get()), HttpStatus.ACCEPTED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
