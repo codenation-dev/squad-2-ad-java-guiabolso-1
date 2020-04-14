@@ -1,14 +1,9 @@
 package com.squad2.CentralDeErros.entity;
 
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -27,6 +22,7 @@ public class User {
     private String name;
 
     @NotNull
+    @Column(unique = true)
     @Email
     @Size(min = 1, max = 200)
     private String email;
