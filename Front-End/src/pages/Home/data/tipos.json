@@ -1,0 +1,18 @@
+[
+    {
+        "label": "Selecione o tipo:",
+        "value": ""
+    },
+    {
+        "label": "Produção",
+        "value": "PROD"
+    },
+    {
+        "label": "Homologação",
+        "value": "HOMOL"
+    },
+    {
+        "label": "Dev",
+        "value": "DEV"
+    }
+]
