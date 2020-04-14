@@ -14,11 +14,11 @@ INSERT INTO USERS (id, active, created, email, name, password) VALUES (5, true, 
 INSERT INTO USERS (id, active, created, email, name, password) VALUES (6, true, now(), 'admin@admin', 'Administrator', '$2a$10$BXrgTIQ.BY9DinOCYQLt9uT4kuNlAu2HXs0G2.Qnf5IeqjzgV0ECG');
 
 /* Squad2 members roles */
-INSERT INTO USER_ROLE (user_id, role_id) VALUES (1, 1);
-INSERT INTO USER_ROLE (user_id, role_id) VALUES (2, 1);
-INSERT INTO USER_ROLE (user_id, role_id) VALUES (3, 1);
-INSERT INTO USER_ROLE (user_id, role_id) VALUES (4, 1);
-INSERT INTO USER_ROLE (user_id, role_id) VALUES (5, 1);
+INSERT INTO USER_ROLE (user_id, role_id) VALUES (1, 2);
+INSERT INTO USER_ROLE (user_id, role_id) VALUES (2, 2);
+INSERT INTO USER_ROLE (user_id, role_id) VALUES (3, 2);
+INSERT INTO USER_ROLE (user_id, role_id) VALUES (4, 2);
+INSERT INTO USER_ROLE (user_id, role_id) VALUES (5, 2);
 
 /* Admin user roles */
 INSERT INTO USER_ROLE (user_id, role_id) VALUES (6, 1);
