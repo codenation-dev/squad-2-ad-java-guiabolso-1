@@ -18,6 +18,6 @@ deve consumir a API do produto
 desenvolvida na forma de uma Single Page Application.
 
 ### Observações
-Aceleração com ênfase no backend (Java), frontend desenvolvido com React.
+Aceleração com ênfase no backend (Java), frontend desenvolvido com React(https://centraldeerros-react.herokuapp.com/).
 
 
