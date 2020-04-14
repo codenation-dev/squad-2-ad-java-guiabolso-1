@@ -1,0 +1,14 @@
+[
+    {
+        "label": "Buscar por:",
+        "value": ""
+    },
+    {
+        "label": "Level",
+        "value": "level"
+    },
+    {
+        "label": "Descrição",
+        "value": "descricao"
+    }
+]

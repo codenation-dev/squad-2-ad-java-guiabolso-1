@@ -1,0 +1,44 @@
+    body {
+        color: #222;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    .formStyle {
+        width: 100%;
+        padding: 10px;
+        background-color: lightgray;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+    }
+    
+    .select {
+        width: 250px;
+        margin: 10px;
+    }
+    
+    .input {
+        width: 300px;
+    }
+    
+    .title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .img {
+        width: 50px;
+    }
+    
+    table {
+        width: 90vw;
+        padding: 20px;
+    }
+ 
