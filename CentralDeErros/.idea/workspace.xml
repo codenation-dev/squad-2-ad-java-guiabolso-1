@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1b592e54-1cbd-4f95-a479-485f4da80d8a" name="Default Changelist" comment="initial data for tests (users and logs)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +38,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -145,7 +142,49 @@
       <option name="project" value="LOCAL" />
       <updated>1585874089917</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="user's e-mail is unique">
+      <created>1586879354869</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1586879354869</updated>
+    </task>
+    <task id="LOCAL-00010" summary="insert 'real' data to the DB">
+      <created>1586882984648</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1586882984648</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix user roles">
+      <created>1586884114992</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1586884114992</updated>
+    </task>
+    <task id="LOCAL-00012" summary="ADMIN can filter log entries by user id">
+      <created>1586884550642</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1586884550642</updated>
+    </task>
+    <task id="LOCAL-00013" summary="removed test methods">
+      <created>1586885304974</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1586885304974</updated>
+    </task>
+    <task id="LOCAL-00014" summary="ADMIN can now search and filter by user id">
+      <created>1586886107006</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1586886107006</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -156,13 +195,19 @@
     <MESSAGE value="archiveLog(...), deleteLog(...) and restoreLog(...) methods added" />
     <MESSAGE value="fix data.sql inserts" />
     <MESSAGE value="initial data for tests (users and logs)" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial data for tests (users and logs)" />
+    <MESSAGE value="user's e-mail is unique" />
+    <MESSAGE value="insert 'real' data to the DB" />
+    <MESSAGE value="fix user roles" />
+    <MESSAGE value="ADMIN can filter log entries by user id" />
+    <MESSAGE value="removed test methods" />
+    <MESSAGE value="ADMIN can now search and filter by user id" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADMIN can now search and filter by user id" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="420" y="912" width="1069" height="847" key="CommitChangelistDialog2" timestamp="1585874284372">
+    <state x="420" y="912" width="1069" height="847" key="CommitChangelistDialog2" timestamp="1586886106905">
       <screen x="0" y="809" width="1920" height="1053" />
     </state>
-    <state x="420" y="912" width="1069" height="847" key="CommitChangelistDialog2/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585874284372" />
+    <state x="420" y="912" width="1069" height="847" key="CommitChangelistDialog2/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1586886106905" />
     <state x="659" y="1019" width="591" height="633" key="DBNavigator.ConnectionInfoDialog" timestamp="1585870915499">
       <screen x="0" y="809" width="1920" height="1053" />
     </state>
@@ -171,22 +216,22 @@
       <screen x="0" y="809" width="1920" height="1053" />
     </state>
     <state x="532" y="1001" width="924" height="684" key="DBNavigator.ProjectSettingsDialog/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585871140679" />
-    <state width="1874" height="311" key="GridCell.Tab.0.bottom" timestamp="1585873996297">
+    <state width="1874" height="341" key="GridCell.Tab.0.bottom" timestamp="1586885865712">
       <screen x="0" y="809" width="1920" height="1053" />
     </state>
-    <state width="1874" height="311" key="GridCell.Tab.0.bottom/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585873996297" />
-    <state width="1874" height="311" key="GridCell.Tab.0.center" timestamp="1585873996297">
+    <state width="1874" height="341" key="GridCell.Tab.0.bottom/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1586885865712" />
+    <state width="1874" height="341" key="GridCell.Tab.0.center" timestamp="1586885865711">
       <screen x="0" y="809" width="1920" height="1053" />
     </state>
-    <state width="1874" height="311" key="GridCell.Tab.0.center/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585873996297" />
-    <state width="1874" height="311" key="GridCell.Tab.0.left" timestamp="1585873996296">
+    <state width="1874" height="341" key="GridCell.Tab.0.center/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1586885865711" />
+    <state width="1874" height="341" key="GridCell.Tab.0.left" timestamp="1586885865711">
       <screen x="0" y="809" width="1920" height="1053" />
     </state>
-    <state width="1874" height="311" key="GridCell.Tab.0.left/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585873996296" />
-    <state width="1874" height="311" key="GridCell.Tab.0.right" timestamp="1585873996297">
+    <state width="1874" height="341" key="GridCell.Tab.0.left/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1586885865711" />
+    <state width="1874" height="341" key="GridCell.Tab.0.right" timestamp="1586885865711">
       <screen x="0" y="809" width="1920" height="1053" />
     </state>
-    <state width="1874" height="311" key="GridCell.Tab.0.right/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585873996297" />
+    <state width="1874" height="341" key="GridCell.Tab.0.right/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1586885865711" />
     <state width="1874" height="343" key="GridCell.Tab.1.bottom" timestamp="1585867126327">
       <screen x="0" y="809" width="1920" height="1053" />
     </state>
@@ -211,10 +256,10 @@
       <screen x="0" y="809" width="1920" height="1053" />
     </state>
     <state x="449" y="970" key="SettingsEditor/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585870850975" />
-    <state x="515" y="1041" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1585874152679">
+    <state x="515" y="1041" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1586886817403">
       <screen x="0" y="809" width="1920" height="1053" />
     </state>
-    <state x="515" y="1041" width="800" height="528" key="Vcs.Push.Dialog.v2/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585874152679" />
+    <state x="515" y="1041" width="800" height="528" key="Vcs.Push.Dialog.v2/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1586886817403" />
     <state width="960" height="526" key="XDebugger.FullValuePopup" timestamp="1585864451789">
       <screen x="0" y="809" width="1920" height="1053" />
     </state>
@@ -228,6 +273,10 @@
     </state>
     <state x="529" y="1176" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585849787134" />
     <state x="425" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1299.741@67.27.1299.741" timestamp="1585062876849" />
+    <state x="651" y="908" width="618" height="855" key="find.popup" timestamp="1586881705796">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state x="651" y="908" width="618" height="855" key="find.popup/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1586881705796" />
     <state x="543" y="1117" width="790" height="413" key="git4idea.merge.GitPullDialog" timestamp="1585850886679">
       <screen x="0" y="809" width="1920" height="1053" />
     </state>
