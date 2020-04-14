@@ -33,19 +33,36 @@ public class LogService {
     public List<Log> getLogsByUserId(Long userId) {
         return logRepository.getLogByUserId(userId);
     }
-    public List<Log> getLogByUserId(Long userId, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
+
+    public List<Log> getLogsByUserId(Long userId, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
         return logRepository.getLogByUserId(userId, status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
     }
 
-    public List<Log> getLogByUserIdAndEnv(Long userId, Environment environment, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
+    public List<Log> getLogs(Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
+        return logRepository.getLogs(status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
+    }
+
+    public List<Log> getLogsByUserIdAndEnv(Long userId, Environment environment, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
         return logRepository.getLogByUserIdAndEnv(userId, environment.ordinal(), status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
     }
 
-    public List<Log> searchLogByEventDescriptionIgnoreCase(String keyword, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
-        return logRepository.searchLogByEventDescriptionIgnoreCase(keyword, status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
+    public List<Log> getLogsByEnv(Environment environment, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
+        return logRepository.getLogsByEnv(environment.ordinal(), status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
     }
 
-    public List<Log> searchLogByEventDescriptionAndEnvIgnoreCase(String keyword, Environment environment, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
-        return logRepository.searchLogByEventDescriptionAndEnvIgnoreCase(keyword, environment.ordinal(), status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
+    public List<Log> searchLogByEventDescriptionIgnoreCase(String keyword, Long userId, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
+        return logRepository.searchLogByEventDescriptionIgnoreCase(keyword, userId, status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
+    }
+
+    public List<Log> searchLogByEventDescriptionIgnoreCaseAdmin(String keyword, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
+        return logRepository.searchLogByEventDescriptionIgnoreCaseAdmin(keyword, status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
+    }
+
+    public List<Log> searchLogByEventDescriptionAndEnvIgnoreCase(String keyword, Long userId, Environment environment, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
+        return logRepository.searchLogByEventDescriptionAndEnvIgnoreCase(keyword, userId, environment.ordinal(), status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
+    }
+
+    public List<Log> searchLogByEventDescriptionAndEnvIgnoreCaseAdmin(String keyword, Environment environment, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
+        return logRepository.searchLogByEventDescriptionAndEnvIgnoreCaseAdmin(keyword, environment.ordinal(), status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
     }
 }

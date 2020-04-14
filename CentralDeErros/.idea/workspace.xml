@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b592e54-1cbd-4f95-a479-485f4da80d8a" name="Default Changelist" comment="">
+    <list default="true" id="1b592e54-1cbd-4f95-a479-485f4da80d8a" name="Default Changelist" comment="initial data for tests (users and logs)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-End/central-erros/src/pages/SignUp/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/central-erros/src/pages/SignUp/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-End/central-erros/src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-End/central-erros/src/services/api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,24 +13,51 @@
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$/.." source="back-end/log" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="front-end/integration" />
+        <entry key="$PROJECT_DIR$/.." value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1Za25BaiHaU0QZO1j2YcdU2jEq8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.CentralDeErrosApplication">
+    <configuration name="CentralDeErrosApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.squad2.CentralDeErros.CentralDeErrosApplication" />
+      <module name="CentralDeErros" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.squad2.CentralDeErros.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in CentralDeErros" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CentralDeErros" />
       <option name="PACKAGE_NAME" value="" />
@@ -43,6 +68,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CentralDeErrosApplication" />
+        <item itemvalue="JUnit.All in CentralDeErros" />
+        <item itemvalue="JUnit.All in CentralDeErros" />
         <item itemvalue="JUnit.All in CentralDeErros" />
       </list>
     </recent_temporary>
@@ -58,16 +86,211 @@
       <option name="presentableId" value="Default" />
       <updated>1585062698293</updated>
     </task>
+    <task id="LOCAL-00001" summary="remove unused imports">
+      <created>1585504880522</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585504880522</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix application config (run)">
+      <created>1585504922163</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1585504922163</updated>
+    </task>
+    <task id="LOCAL-00003" summary="getLogByUserId(...) and getLogByUserIdAndEnv(...) now automatically gets authenticated user.">
+      <created>1585840074138</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1585840074138</updated>
+    </task>
+    <task id="LOCAL-00004" summary="searchLogByEventDescriptionIgnoreCase(...) and searchLogByEventDescriptionAndEnvIgnoreCase(...) now automatically gets authenticated user.">
+      <created>1585840550821</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1585840550821</updated>
+    </task>
+    <task id="LOCAL-00005" summary="getLogByUserId(...) and getLogByUserIdAndEnv(...) now automatically gets authenticated user.">
+      <created>1585840595088</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1585840595088</updated>
+    </task>
+    <task id="LOCAL-00006" summary="archiveLog(...), deleteLog(...) and restoreLog(...) methods added">
+      <created>1585849506935</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1585849506935</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix data.sql inserts">
+      <created>1585873784072</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1585873784072</updated>
+    </task>
+    <task id="LOCAL-00008" summary="initial data for tests (users and logs)">
+      <created>1585874089917</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1585874089917</updated>
+    </task>
+    <task id="LOCAL-00009" summary="user's e-mail is unique">
+      <created>1586879354869</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1586879354869</updated>
+    </task>
+    <task id="LOCAL-00010" summary="insert 'real' data to the DB">
+      <created>1586882984648</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1586882984648</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix user roles">
+      <created>1586884114992</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1586884114992</updated>
+    </task>
+    <task id="LOCAL-00012" summary="ADMIN can filter log entries by user id">
+      <created>1586884550642</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1586884550642</updated>
+    </task>
+    <task id="LOCAL-00013" summary="removed test methods">
+      <created>1586885304974</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1586885304974</updated>
+    </task>
+    <task id="LOCAL-00014" summary="ADMIN can now search and filter by user id">
+      <created>1586886107006</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1586886107006</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="remove unused imports" />
+    <MESSAGE value="fix application config (run)" />
+    <MESSAGE value="searchLogByEventDescriptionIgnoreCase(...) and searchLogByEventDescriptionAndEnvIgnoreCase(...) now automatically gets authenticated user." />
+    <MESSAGE value="getLogByUserId(...) and getLogByUserIdAndEnv(...) now automatically gets authenticated user." />
+    <MESSAGE value="archiveLog(...), deleteLog(...) and restoreLog(...) methods added" />
+    <MESSAGE value="fix data.sql inserts" />
+    <MESSAGE value="initial data for tests (users and logs)" />
+    <MESSAGE value="user's e-mail is unique" />
+    <MESSAGE value="insert 'real' data to the DB" />
+    <MESSAGE value="fix user roles" />
+    <MESSAGE value="ADMIN can filter log entries by user id" />
+    <MESSAGE value="removed test methods" />
+    <MESSAGE value="ADMIN can now search and filter by user id" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADMIN can now search and filter by user id" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="420" y="912" width="1069" height="847" key="CommitChangelistDialog2" timestamp="1586886106905">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state x="420" y="912" width="1069" height="847" key="CommitChangelistDialog2/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1586886106905" />
+    <state x="659" y="1019" width="591" height="633" key="DBNavigator.ConnectionInfoDialog" timestamp="1585870915499">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state x="659" y="1019" width="591" height="633" key="DBNavigator.ConnectionInfoDialog/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585870915499" />
+    <state x="532" y="1001" width="924" height="684" key="DBNavigator.ProjectSettingsDialog" timestamp="1585871140679">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state x="532" y="1001" width="924" height="684" key="DBNavigator.ProjectSettingsDialog/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585871140679" />
+    <state width="1874" height="341" key="GridCell.Tab.0.bottom" timestamp="1586885865712">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state width="1874" height="341" key="GridCell.Tab.0.bottom/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1586885865712" />
+    <state width="1874" height="341" key="GridCell.Tab.0.center" timestamp="1586885865711">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state width="1874" height="341" key="GridCell.Tab.0.center/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1586885865711" />
+    <state width="1874" height="341" key="GridCell.Tab.0.left" timestamp="1586885865711">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state width="1874" height="341" key="GridCell.Tab.0.left/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1586885865711" />
+    <state width="1874" height="341" key="GridCell.Tab.0.right" timestamp="1586885865711">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state width="1874" height="341" key="GridCell.Tab.0.right/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1586885865711" />
+    <state width="1874" height="343" key="GridCell.Tab.1.bottom" timestamp="1585867126327">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state width="1874" height="343" key="GridCell.Tab.1.bottom/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585867126327" />
+    <state width="1874" height="343" key="GridCell.Tab.1.center" timestamp="1585867126326">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state width="1874" height="343" key="GridCell.Tab.1.center/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585867126326" />
+    <state width="1874" height="343" key="GridCell.Tab.1.left" timestamp="1585867126326">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state width="1874" height="343" key="GridCell.Tab.1.left/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585867126326" />
+    <state width="1874" height="343" key="GridCell.Tab.1.right" timestamp="1585867126326">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state width="1874" height="343" key="GridCell.Tab.1.right/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585867126326" />
     <state x="249" y="54" width="924" height="684" key="Maven.ArtifactSearchDialog" timestamp="1585282402660">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="249" y="54" width="924" height="684" key="Maven.ArtifactSearchDialog/67.27.1299.741@67.27.1299.741" timestamp="1585282402660" />
-    <state x="425" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585062876849">
-      <screen x="67" y="27" width="1299" height="741" />
+    <state x="449" y="970" key="SettingsEditor" timestamp="1585870850975">
+      <screen x="0" y="809" width="1920" height="1053" />
     </state>
+    <state x="449" y="970" key="SettingsEditor/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585870850975" />
+    <state x="515" y="1041" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1586886817403">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state x="515" y="1041" width="800" height="528" key="Vcs.Push.Dialog.v2/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1586886817403" />
+    <state width="960" height="526" key="XDebugger.FullValuePopup" timestamp="1585864451789">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state width="960" height="526" key="XDebugger.FullValuePopup/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585864451789" />
+    <state x="576" y="1132" key="com.intellij.ide.util.TipDialog" timestamp="1585839634731">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state x="576" y="1132" key="com.intellij.ide.util.TipDialog/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585839634731" />
+    <state x="529" y="1176" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585849787134">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state x="529" y="1176" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585849787134" />
     <state x="425" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1299.741@67.27.1299.741" timestamp="1585062876849" />
+    <state x="651" y="908" width="618" height="855" key="find.popup" timestamp="1586881705796">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state x="651" y="908" width="618" height="855" key="find.popup/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1586881705796" />
+    <state x="543" y="1117" width="790" height="413" key="git4idea.merge.GitPullDialog" timestamp="1585850886679">
+      <screen x="0" y="809" width="1920" height="1053" />
+    </state>
+    <state x="543" y="1117" width="790" height="413" key="git4idea.merge.GitPullDialog/0.809.1920.1053/1920.0.1920.1080@0.809.1920.1053" timestamp="1585850886679" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/squad2/CentralDeErros/configuration/JwtRequestFilter.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
