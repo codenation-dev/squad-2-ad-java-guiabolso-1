@@ -2,7 +2,6 @@ package com.squad2.CentralDeErros.controller;
 
 import com.squad2.CentralDeErros.entity.Log;
 import com.squad2.CentralDeErros.entity.Role;
-import com.squad2.CentralDeErros.entity.User;
 import com.squad2.CentralDeErros.entity.enumerate.Environment;
 import com.squad2.CentralDeErros.entity.enumerate.Status;
 import com.squad2.CentralDeErros.service.LogService;
@@ -23,7 +22,6 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/log")
-//@Secured("USER")
 public class LogController {
 
     @Autowired
@@ -226,19 +224,5 @@ public class LogController {
             }
         }
         return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-    }
-
-    @GetMapping("/list")
-    public List<Log> getLogs() {
-        return logService.getLogsByUserId(securityService.getUserAuthenticated().getId());
-    }
-
-    @GetMapping("/teste")
-    public ResponseEntity<User> getLogTeste() {
-        try {
-            return new ResponseEntity<>(securityService.getUserAuthenticated(), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
     }
 }
