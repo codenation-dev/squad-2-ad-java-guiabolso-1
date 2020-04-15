@@ -1,10 +1,15 @@
 package com.squad2.CentralDeErros.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "roles")
+@Getter
+@Setter
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,19 +20,4 @@ public class Role {
     @Size(max = 20)
     private String role;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 }
