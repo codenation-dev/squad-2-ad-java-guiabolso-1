@@ -1,11 +1,9 @@
 package com.squad2.CentralDeErros.controller;
 
 import com.squad2.CentralDeErros.configuration.JwtTokenUtil;
-import com.squad2.CentralDeErros.entity.User;
 import com.squad2.CentralDeErros.model.JwtRequest;
 import com.squad2.CentralDeErros.model.JwtResponse;
 import com.squad2.CentralDeErros.service.JwtUserDetailsService;
-import com.squad2.CentralDeErros.service.SecurityService;
 import com.squad2.CentralDeErros.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +14,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
@@ -44,9 +38,9 @@ public class AuthenticationController {
                 .loadUserByUsername(authenticationRequest.getEmail());
         final String token = jwtTokenUtil.generateToken(userDetails);
 
-        Authentication authentication =  SecurityContextHolder.getContext().getAuthentication();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String authenticatedUserName = userService.findUserByEmail(userDetails.getUsername()).getName();
-        return ResponseEntity.ok(new JwtResponse(token,authenticatedUserName));
+        return ResponseEntity.ok(new JwtResponse(token, authenticatedUserName));
     }
 
     private void authenticate(String username, String password) throws Exception {
