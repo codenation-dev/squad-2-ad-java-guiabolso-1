@@ -4,13 +4,19 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.squad2.CentralDeErros.entity.enumerate.Environment;
 import com.squad2.CentralDeErros.entity.enumerate.Level;
 import com.squad2.CentralDeErros.entity.enumerate.Status;
+import lombok.Getter;
+import lombok.Setter;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
 @Table(name="logs")
+@Getter
+@Setter
 public class Log {
 
     @Id
@@ -32,14 +38,17 @@ public class Log {
 
     @Column
     @NotNull
+    @Size(min = 1, max = 255)
     private String eventDescription;
 
     @Column
     @NotNull
+    @Size(min = 1, max = 255)
     private String eventLog;
 
     @Column
     @NotNull
+    @Size(min = 7, max = 15)
     private String source;
 
     @Column
@@ -52,75 +61,4 @@ public class Log {
     @JoinColumn(name = "USER_ID")
     private User user;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Level getLevel() {
-        return level;
-    }
-
-    public void setLevel(Level level) {
-        this.level = level;
-    }
-
-    public Environment getEnvironment() {
-        return environment;
-    }
-
-    public void setEnvironment(Environment environment) {
-        this.environment = environment;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public String getEventDescription() {
-        return eventDescription;
-    }
-
-    public void setEventDescription(String eventDescription) {
-        this.eventDescription = eventDescription;
-    }
-
-    public String getEventLog() {
-        return eventLog;
-    }
-
-    public void setEventLog(String eventLog) {
-        this.eventLog = eventLog;
-    }
-
-    public String getSource() {
-        return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

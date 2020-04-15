@@ -54,8 +54,8 @@ public class LogService {
         return logRepository.searchLogByEventDescriptionIgnoreCase(keyword, userId, status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
     }
 
-    public List<Log> searchLogByEventDescriptionIgnoreCaseAdmin(String keyword, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
-        return logRepository.searchLogByEventDescriptionIgnoreCaseAdmin(keyword, status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
+    public List<Log> searchLogByEventDescriptionIgnoreCaseAdminOnly(String keyword, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
+        return logRepository.searchLogByEventDescriptionIgnoreCaseAdminOnly(keyword, status.ordinal(), PageRequest.of(page, size, Sort.by(direction, sortBy)));
     }
 
     public List<Log> searchLogByEventDescriptionAndEnvIgnoreCase(String keyword, Long userId, Environment environment, Status status, Short page, Short size, String sortBy, Sort.Direction direction) {
