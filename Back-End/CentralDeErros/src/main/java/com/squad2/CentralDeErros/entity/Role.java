@@ -1,6 +1,7 @@
 package com.squad2.CentralDeErros.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "roles")
@@ -9,7 +10,9 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "role_id")
     private int id;
+
     @Column(name = "role")
+    @Size(max = 20)
     private String role;
 
     public int getId() {

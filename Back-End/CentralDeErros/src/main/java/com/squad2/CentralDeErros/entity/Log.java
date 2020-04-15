@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -37,14 +38,17 @@ public class Log {
 
     @Column
     @NotNull
+    @Size(min = 1, max = 255)
     private String eventDescription;
 
     @Column
     @NotNull
+    @Size(min = 1, max = 255)
     private String eventLog;
 
     @Column
     @NotNull
+    @Size(min = 7, max = 15)
     private String source;
 
     @Column
