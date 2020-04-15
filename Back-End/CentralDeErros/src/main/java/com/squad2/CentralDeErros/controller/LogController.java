@@ -70,7 +70,7 @@ public class LogController {
     }
 
     @GetMapping(params = "user")
-    public ResponseEntity<List<Log>> getLogsByAuthenticatedUser(@RequestParam(value = "user", required = true) Long user,
+    public ResponseEntity<List<Log>> getLogsByUserAdminOnly(@RequestParam(value = "user", required = true) Long user,
                                                                 @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
                                                                 @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
                                                                 @RequestParam(value = "size", required = false, defaultValue = "10") Short size,
@@ -108,7 +108,7 @@ public class LogController {
     }
 
     @GetMapping(params = {"env", "user"})
-    public ResponseEntity<List<Log>> getLogsByAuthenticatedUserAndEnv(@RequestParam("env") Environment environment,
+    public ResponseEntity<List<Log>> getLogsByUserAndEnvAdminOnly(@RequestParam("env") Environment environment,
                                                                       @RequestParam("user") Long user,
                                                                       @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
                                                                       @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
@@ -138,7 +138,7 @@ public class LogController {
             Set<Role> role = securityService.getUserAuthenticated().getRoles();
 
             if(role.contains(roleService.findByRole("ADMIN")))
-                return new ResponseEntity<>(logService.searchLogByEventDescriptionIgnoreCaseAdmin(keyword, status, page, size, sortBy, direction), HttpStatus.OK);
+                return new ResponseEntity<>(logService.searchLogByEventDescriptionIgnoreCaseAdminOnly(keyword, status, page, size, sortBy, direction), HttpStatus.OK);
 
             return new ResponseEntity<>(logService.searchLogByEventDescriptionIgnoreCase(keyword, securityService.getUserAuthenticated().getId(), status, page, size, sortBy, direction), HttpStatus.OK);
         } catch (Exception e) {
@@ -147,7 +147,7 @@ public class LogController {
     }
 
     @GetMapping(params = {"search", "user"})
-    public ResponseEntity<List<Log>> searchLogByEventDescriptionIgnoreCase(@RequestParam("search") String keyword,
+    public ResponseEntity<List<Log>> searchLogByEventDescriptionAndUserIdIgnoreCaseAdminOnly(@RequestParam("search") String keyword,
                                                                            @RequestParam("user") Long user,
                                                                            @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
                                                                            @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
@@ -187,7 +187,7 @@ public class LogController {
     }
 
     @GetMapping(params = {"search", "env", "user"})
-    public ResponseEntity<List<Log>> searchLogByEventDescriptionAndEnvIgnoreCase(@RequestParam("search") String keyword,
+    public ResponseEntity<List<Log>> searchLogByEventDescriptionAndEnvAndUserIdIgnoreCaseAdminOnly(@RequestParam("search") String keyword,
                                                                                  @RequestParam("env") Environment environment,
                                                                                  @RequestParam("user") Long user,
                                                                                  @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,

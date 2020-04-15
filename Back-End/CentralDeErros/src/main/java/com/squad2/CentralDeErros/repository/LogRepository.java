@@ -53,7 +53,7 @@ public interface LogRepository extends JpaRepository<Log, Long> {
             "WHERE LOWER(EVENT_DESCRIPTION) LIKE '%' || LOWER(:keyword) || '%' " +
             "AND STATUS = :status ",
             nativeQuery = true)
-    List<Log> searchLogByEventDescriptionIgnoreCaseAdmin(@Param("keyword") String keyword, @Param("status") int status, Pageable pageable);
+    List<Log> searchLogByEventDescriptionIgnoreCaseAdminOnly(@Param("keyword") String keyword, @Param("status") int status, Pageable pageable);
 
     @Query(value = "SELECT * " +
             "FROM LOGS " +
