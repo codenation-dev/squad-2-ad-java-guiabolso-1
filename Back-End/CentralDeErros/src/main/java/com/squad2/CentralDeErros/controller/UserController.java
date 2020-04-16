@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/user")
 public class UserController {
 
@@ -17,7 +18,6 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/registration")
-    //public ResponseEntity<User> addUser(@RequestBody User user){
     public @ResponseBody
     ResponseEntity<UserResponse> addUser(@RequestBody User user) throws JSONException {
         try {
@@ -31,7 +31,5 @@ public class UserController {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-
-
     }
 }

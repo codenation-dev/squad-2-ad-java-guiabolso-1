@@ -11,17 +11,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PreFilter;
+import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/log")
+@PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
 public class LogController {
 
     @Autowired
@@ -70,6 +73,7 @@ public class LogController {
     }
 
     @GetMapping(params = "user")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<List<Log>> getLogsByUserAdminOnly(@RequestParam(value = "user", required = true) Long user,
                                                                 @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
                                                                 @RequestParam(value = "page", required = false, defaultValue = "0") Short page,
@@ -108,6 +112,7 @@ public class LogController {
     }
 
     @GetMapping(params = {"env", "user"})
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<List<Log>> getLogsByUserAndEnvAdminOnly(@RequestParam("env") Environment environment,
                                                                       @RequestParam("user") Long user,
                                                                       @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
@@ -147,6 +152,7 @@ public class LogController {
     }
 
     @GetMapping(params = {"search", "user"})
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<List<Log>> searchLogByEventDescriptionAndUserIdIgnoreCaseAdminOnly(@RequestParam("search") String keyword,
                                                                            @RequestParam("user") Long user,
                                                                            @RequestParam(value = "status", required = false, defaultValue = "ACTIVE") Status status,
@@ -187,6 +193,7 @@ public class LogController {
     }
 
     @GetMapping(params = {"search", "env", "user"})
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<List<Log>> searchLogByEventDescriptionAndEnvAndUserIdIgnoreCaseAdminOnly(@RequestParam("search") String keyword,
                                                                                  @RequestParam("env") Environment environment,
                                                                                  @RequestParam("user") Long user,
