@@ -6,7 +6,7 @@ INSERT INTO ROLES (ROLE) VALUES ('USER');
 /* Squad2 members */
 INSERT INTO USERS (id, active, created, email, name, password) VALUES (1, true, now(), 'renata@abreu', 'Renata Abreu', '$2a$10$BXrgTIQ.BY9DinOCYQLt9uT4kuNlAu2HXs0G2.Qnf5IeqjzgV0ECG');
 INSERT INTO USERS (id, active, created, email, name, password) VALUES (2, true, now(), 'grace@ferrari', 'Grace Ferrari', '$2a$10$BXrgTIQ.BY9DinOCYQLt9uT4kuNlAu2HXs0G2.Qnf5IeqjzgV0ECG');
-INSERT INTO USERS (id, active, created, email, name, password) VALUES (3, true, now(), 'jaqueline@nascimento', 'Jaqueline Nascimento', '$2a$10$BXrgTIQ.BY9DinOCYQLt9uT4kuNlAu2HXs0G2.Qnf5IeqjzgV0ECG');
+INSERT INTO USERS (id, active, created, email, name, password) VALUES (3, true, now(), 'jackeline@nascimento', 'Jackeline Nascimento', '$2a$10$BXrgTIQ.BY9DinOCYQLt9uT4kuNlAu2HXs0G2.Qnf5IeqjzgV0ECG');
 INSERT INTO USERS (id, active, created, email, name, password) VALUES (4, true, now(), 'caue@franca', 'Cauê França', '$2a$04$zke40tt7zb4erLFLrnLYYOnsptlaqMNNHUmCcuecirjS7DlDgXAhG');
 INSERT INTO USERS (id, active, created, email, name, password) VALUES (5, true, now(), 'luana@carolina', 'Luana Carolina', '$2a$10$BXrgTIQ.BY9DinOCYQLt9uT4kuNlAu2HXs0G2.Qnf5IeqjzgV0ECG');
 
