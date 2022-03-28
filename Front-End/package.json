@@ -10,7 +10,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "font-awesome": "^4.7.0",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
     "react-alert": "^7.0.0",
